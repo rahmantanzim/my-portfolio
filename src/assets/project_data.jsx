@@ -1,15 +1,15 @@
 export const project_data = [
   {
     id: 1,
-    title: "Full website for Heritage Archives",
-    tool: "WordPress",
-    tags: ["wordpress", "full-website", "cms", "custom-posts"],
-    link: "https://heritage-archives.org",
-    github: false,
-    github_link: "#",
-    client_name: "Heritage Archives Bangladesh",
+    title: "Encrypted Chat application with Python Cryptography",
+    tool: "Python",
+    tags: ["cryptography", "end-to-end-chat", "python", "rsa"],
+    link: "",
+    github: true,
+    github_link: "https://github.com/rahmantanzim/python-cryptography-chat",
+    client_name: "University Course Project",
     description:
-      "A full website for a private archives in Bangladesh with CMS and custom post types.",
+      "A lightweight, end-to-end encrypted chat application built with Python. Secured with RSA-OAEP and designed for smooth development & debugging inside VS Code. ",
   },
   {
     id: 2,
@@ -36,3 +36,15 @@ export const project_data = [
       "An e-commerce site for a local traditional clothing business in Bangladesh.",
   },
 ];
+
+
+    // id: 1,
+    // title: "Full website for Heritage Archives",
+    // tool: "WordPress",
+    // tags: ["wordpress", "full-website", "cms", "custom-posts"],
+    // link: "https://heritage-archives.org",
+    // github: false,
+    // github_link: "#",
+    // client_name: "Heritage Archives Bangladesh",
+    // description:
+    //   "A full website for a private archives in Bangladesh with CMS and custom post types.",

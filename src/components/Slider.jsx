@@ -5,9 +5,8 @@ const Slider = () => {
         <>
             <div className="slider min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-950 via-zinc-900 to-black">
                 <div className="slider-left flex items-center max-w-4xl w-full flex-col gap-6">
-                    <h1 className='text-6xl font-bold'>I am
-                        <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                            Tanzim
+                    <h1 className='text-6xl font-bold'>I'm <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                             Tanzim
                         </span></h1>
                     <h2 className='text-lg sm:text-2xl font-medium text-zinc-300'>Full Stack Developer · JavaScript · Python</h2>
                     <p className='max-w-2xl text-center text-zinc-400 text-base sm:text-lg leading-relaxed'>I am training to be a software developer.

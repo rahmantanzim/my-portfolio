@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Cascadia Code", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
