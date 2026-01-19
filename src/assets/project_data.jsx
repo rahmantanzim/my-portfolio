@@ -35,6 +35,7 @@ export const project_data = [
     description:
       "An e-commerce site for a local traditional clothing business in Bangladesh.",
   },
+  
 ];
 
 
