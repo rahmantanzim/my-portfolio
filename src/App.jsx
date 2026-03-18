@@ -12,6 +12,7 @@ function App() {
     <div className="min-h-screen overfow-x-hidden">
       <Navbar/>
       <main>
+        <Hero/>
         {/* <Hero/>
         <About/>
         <Projects/>
