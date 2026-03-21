@@ -29,7 +29,7 @@
   body{
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Inter", sans-serif;
+    font-family: "IBM Plex Mono", monospace;
   }
   .font-serif{
     font-family: "Playfair Display", serif;
@@ -85,7 +85,18 @@
     75%{
       transform: translate(30px, 10px);
     }
+
   }
+  @keyframes marquee{
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(-50%);
+    }
+  
+  }
+
   .animate-fade-in{
     animation: fade-in 0.8s ease-out both;
   }
@@ -98,6 +109,10 @@
   .animation-delay-600{
     animation-delay: 600ms;
   }
-
+  .animate-marquee{
+    animation: marquee 30s linear infinite;
+  
+    /* animation: marquee 30s lienar infinite; */
+  }
 
 }

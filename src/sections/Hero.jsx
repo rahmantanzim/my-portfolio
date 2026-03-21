@@ -7,6 +7,31 @@ const Hero = () => {
     { social: FiLinkedin, link: "https://www.linkedin.com/in/tanzim-rahman08/" },
     { social: FiInstagram, link: "https://www.instagram.com/tanzim_r_" },
   ]
+  const skills = [
+  "HTML5",
+  "CSS3",
+  "JavaScript (ES6+)",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Context API",
+  "Node.js",
+  "Express.js",
+  "Python",
+  "PostgreSQL",
+  "MongoDB",
+  "Prisma",
+  "RESTful APIs",
+  "GraphQL",
+  "JWT",
+  "Redis",
+  "Git / GitHub",
+  "Docker",
+  "Vercel",
+  "CI/CD (GitHub Actions)",
+  "Jest"
+];
   return (
     <section className='min-h-screen flex items-center justify-center ohverflow-hidden'>
       <div className="absolute inset-0">
@@ -48,8 +73,8 @@ const Hero = () => {
             </div>
             {/* Title */}
             <div className='space-y-4'>
-              <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in'>Building <span className='text-primary glow-text'> Scalable</span> Systems and <span className='text-primary glow-text'>Clean </span> Interfaces</h1>
-              <p className='animate-fade-in animation-delay-200'>Hi, I am <span className='text-xl'>Tanzim Rahman</span> - a software engineer in training with expertise in React, TypeScript, Next.js. I develop performant, data-driven and responsive web applications with user-focused UI & UX</p>
+              <h1 className='text-3xl md:text-4xl lg:text-6xl font-bold leading-tight animate-fade-in'>Building <span className='text-primary glow-text'> Scalable</span> Systems and <span className='text-primary glow-text'>Clean </span> Interfaces</h1>
+              <p className='animate-fade-in animation-delay-200 text-xl'>I am <span className='text-xl'>Tanzim Rahman</span> - a software engineer in training with expertise in React, TypeScript, Next.js. I develop performant, data-driven and responsive web applications with user-focused UI & UX</p>
             </div>
             {/* CTA */}
             <div className='flex flex-wrap gap-4 animate-fade-in'>
@@ -69,6 +94,20 @@ const Hero = () => {
               <div className='relative glass rounded-3xl p-2 glow-border'>
                 <img src='./tanzim.jpg' alt='Tanzim Rahman' className='w-full aspect-[4/5] object-cover rounded-2xl'/>
               </div>
+            </div>
+          </div>
+        </div>
+        {/* skill section  */}
+        <div className='mt-20 animate-fade-in animation-delay-600'>
+          <p className='mb-6 text-center uppercase'>Tech I am expert at</p>
+          <div className='relative overflow-hidden'>
+            <div className='flex animate-marquee gap-4 items-center justify-center'>
+              {[...skills, ...skills].map((skill,index)=>{
+                return <div key={index} className='flex-shirnk-0 px-8 py-4 bg-primary/10 '>
+                    <span className='text-sm font-semibold' >{skill}</span>
+                  </div>
+              })
+              }
             </div>
           </div>
         </div>
