@@ -19,7 +19,7 @@ const Navbar = () => {
     return ()=> window.removeEventListener("scroll", handleScroll);
   },[])
   return (
-    <header className={`fixed top-0 left-0 right-0 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"}  z-50`}>
+    <header className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"}  z-50`}>
       <nav className='container mx-auto px-6 flex items-center justify-between'>
         <a href="#" className='text-xl font-bold tracking-tigth hover:text-primary '>TR<span className='text-primary'>.</span></a>
         {/* Desktop nav */}
