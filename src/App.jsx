@@ -14,6 +14,7 @@ function App() {
       <main>
         <Hero/>
         <About/>
+        <Projects/>
         {/* <Hero/>
         <About/>
       
