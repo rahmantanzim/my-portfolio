@@ -15,7 +15,7 @@ const Projects = () => {
     title: "Secure E2E Encrypted Chat",
     description:
       "A lightweight, end-to-end encrypted chat application built with Python.",
-    image: "/projects/project2.jpeg",
+    image: "/projects/project2.webp",
     tags: ["Python", "Flask", "SocketIO", "cryptography"],
     link: "#",
     github: "https://github.com/rahmantanzim/python-cryptography-chat",
@@ -27,6 +27,15 @@ const Projects = () => {
     image: "/projects/project3.jpeg",
     tags: ["Elementor", "WP theme customization", "UI", "UX"],
     link: "https://heritage-archives.org",
+    github: "#",
+  },
+  {
+    title: "Laptop Review Microsite & Moderation Engine",
+    description:
+      "Engineered a high-traffic Laravel microsite for a laptop review campaign that reached 600K+ users. Developed a custom keyword-filtering system to moderate 170+ UGC submissions, ensuring only authentic, high-quality reviews qualified for rewards.",
+    image: "/projects/project5.webp",
+    tags: ["Laravel", "PHP", "MySQL", "Content Moderation"],
+    link: "https://www.behance.net/gallery/129215805/USER-GENERATED-REVIEW-CAMPAIGN-MICROSITE", 
     github: "#",
   },
   {
@@ -70,10 +79,10 @@ const Projects = () => {
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60'>
                   <div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
-                    <a href={project.link} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
+                    <a target="_blank" href={project.link} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
                       <ArrowUpRight className="w-5 h-5"/>
                     </a>
-                    <a href={project.github} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
+                    <a target="_blank" href={project.github} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
                       <Github className="w-5 h-5"/>
                     </a>
                   </div>
@@ -95,12 +104,12 @@ const Projects = () => {
           })}
         </div>
         {/* View All CTA */}
-        <div className="text-center mt-12 animate-fade-in animation-delay-500">
+        {/* <div className="text-center mt-12 animate-fade-in animation-delay-500">
           <AnimatedBorderButton>
             View All Projects
             <ArrowUpRight className="w-5 h-5" />
           </AnimatedBorderButton>
-        </div>
+        </div> */}
       </div>
     </section>
   )

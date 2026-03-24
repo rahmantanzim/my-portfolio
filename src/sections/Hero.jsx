@@ -9,32 +9,32 @@ const Hero = () => {
     { social: FiInstagram, link: "https://www.instagram.com/tanzim_r_" },
   ]
   const skills = [
-  "HTML5",
-  "CSS3",
-  "JavaScript (ES6+)",
-  "Bootstrap",
-  "TypeScript",
-  "React",
-  "Context API",
-  "Next.js",
-  "Tailwind CSS",
-  "Node.js",
-  "Express.js",
-  "Python",
-  "PostgreSQL",
-  "MongoDB",
-  "MySQL",
-  "Prisma",
-  "RESTful APIs",
-  "GraphQL",
-  "JWT",
-  "Redis",
-  "Git / GitHub",
-  "Docker",
-  "Vercel",
-  "CI/CD (GitHub Actions)",
-  "Jest"
-];
+    "HTML5",
+    "CSS3",
+    "JavaScript (ES6+)",
+    "Bootstrap",
+    "TypeScript",
+    "React",
+    "Context API",
+    "Next.js",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "Python",
+    "PostgreSQL",
+    "MongoDB",
+    "MySQL",
+    "Prisma",
+    "RESTful APIs",
+    "GraphQL",
+    "JWT",
+    "Redis",
+    "Git / GitHub",
+    "Docker",
+    "Vercel",
+    "CI/CD (GitHub Actions)",
+    "Jest"
+  ];
   return (
     <section className='min-h-screen flex items-center justify-center ohverflow-hidden'>
       <div className="absolute inset-0">
@@ -48,19 +48,23 @@ const Hero = () => {
       {/* Green Dots */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
         {/* pointer-events-none: This prevents the div from receiving any mouse events, allowing interaction with elements beneath it. */}
-        {[...Array(50)].map((_, index) => (
-          <div
+        {[...Array(60)].map((_, index) => {
+          const size = Math.random() * 10 + 1;
+          return <div
             key={index}
-            className='absolute w-1.5 h-1.5 opacity-60 rounded-full'
+            className='absolute  rounded-full'
             style={{
+              width: `${size}px`,
+              height: `${size}px`,
               backgroundColor: "#20b2A6",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              opacity: Math.random() * 0.5 + 0.2, // Random opacity
               animation: `slow-drift ${15 + Math.random() * 20}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`
             }}
           />
-        ))}
+        })}
       </div>
       {/* content of the hero section */}
       <div className='container mx-auto px-6 pt-32 pb-22 relative z-10'>
@@ -84,7 +88,7 @@ const Hero = () => {
               <Button size="lg"> <a href='#contact'>Contact</a></Button>
               <AnimatedBorderButton>
                 <Download className="w-5 h-5" />
-                Download CV
+                <a target='_blank' href='./TanzimRahman.pdf'>Download CV</a>
               </AnimatedBorderButton>
             </div>
             {/* Social Links */}
@@ -98,7 +102,7 @@ const Hero = () => {
           <div className='relative animate-fade-in'>
             <div className='relative max-w-md mx-auto'>
               <div className='relative glass rounded-3xl p-2 glow-border'>
-                <img src='./tanzim.jpg' alt='Tanzim Rahman' className='w-full aspect-[4/5] object-cover rounded-2xl'/>
+                <img src='./tanzim.jpg' alt='Tanzim Rahman' className='w-full aspect-[4/5] object-cover rounded-2xl' />
               </div>
             </div>
           </div>
@@ -108,10 +112,10 @@ const Hero = () => {
           <p className='mb-6 text-center uppercase'>Tech I am expert at</p>
           <div className='relative overflow-hidden'>
             <div className='flex animate-marquee gap-4 items-center justify-center'>
-              {[...skills, ...skills].map((skill,index)=>{
+              {[...skills, ...skills].map((skill, index) => {
                 return <div key={index} className='flex-shirnk-0 px-8 py-4 bg-primary/10 '>
-                    <span className='text-sm font-semibold' >{skill}</span>
-                  </div>
+                  <span className='text-sm font-semibold' >{skill}</span>
+                </div>
               })
               }
             </div>
