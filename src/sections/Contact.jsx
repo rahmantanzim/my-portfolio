@@ -7,8 +7,9 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/Button";
-import { use, useState } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ValidateMessage } from "@/utils/ValidateMessage";
 
 const Contact = () => {
   const contactInfo = [
@@ -46,9 +47,21 @@ const Contact = () => {
     setIsLoading(true);
     setSubmitStatus({ type: null, message: "" });
     try {
+      const aiResult = await ValidateMessage(formData.message);
+
+      // LOGIC: Only block if we are SURE it is gibberish
+      if (aiResult.label !== 'clean' && aiResult.score > 0.75) {
+        setSubmitStatus({
+          type: "error",
+          message: "Oops! My AI thinks that's gibberish. Could you please write a clearer message?",
+        });
+        setIsLoading(false);
+        return; // <--- CRITICAL: This stops the EmailJS part from running!
+      }
+      // -------------------------------
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       if (!serviceId || !templateId || !publicKey) {
         throw new Error("EmailJS configuaration is missing, please double check your environment variables");
       }
@@ -81,7 +94,7 @@ const Contact = () => {
   }
 
   return (
-    <section id='about' className='py-32 relative overflow-hidden'>
+    <section id='contact' className='py-32 relative overflow-hidden'>
       <div className='absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 counded-full blur-3xl -translate-y-1/2'></div>
       <div className='container mx-auto px-6 relative z-10'>
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -136,9 +149,9 @@ const Contact = () => {
               </Button>
               {
                 submitStatus.type && (
-                  <div className={`flex items-center gap-3 p-4 rounded-xl ${submitStatus.type === 'success' ? 
-                    'bg-green-500/10 border border-green-500/20 text-green-500': 'bg-red-500/10 border border-red-500/20 text-red-500'
-                  }`}
+                  <div className={`flex items-center gap-3 p-4 rounded-xl ${submitStatus.type === 'success' ?
+                    'bg-green-500/10 border border-green-500/20 text-green-500' : 'bg-red-500/10 border border-red-500/20 text-red-500'
+                    }`}
                   >
                     {
                       submitStatus.type === 'success' ? <CheckCircle className="w-5 h-5 flex-shrink-0" /> : <AlertCircle className="w-5 h-5 flex-shrink-0" />
@@ -182,9 +195,7 @@ const Contact = () => {
                 <span className="font-medium">Currently Available</span>
               </div>
               <p className="text-muted-foreground text-sm">
-                I'm currently open to new opportunities and exciting projects.
-                Whether you need a full-time engineer or a freelance consultant,
-                let's talk!
+                Currently pursuing my M.Eng. in Software Engineering at Memorial University. I am actively seeking Fall 2026 Co-op opportunities and freelance web development projects. Let’s connect to discuss how my technical skills can support your team!
               </p>
             </div>
           </div>

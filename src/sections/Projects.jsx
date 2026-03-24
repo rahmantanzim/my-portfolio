@@ -3,16 +3,16 @@ import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const Projects = () => {
   const projects = [
   {
-    title: "An AI driven Blogging platform with MERN stack",
+    title: "An AI-Powered Blogging Platform",
     description:
-      "An intelligent blogging tool powered by Gemini API, helping users create better content faster based on the prompt they give.",
+      "A sophisticated MERN stack application integrated with the Gemini API to automate content generation and enhance user creativity through intelligent prompting.",
     image: "/projects/project1.jpeg",
     tags: ["React", "NodeJS", "Express", "MongoDB", "Tailwind CSS", "JWT","Vercel"],
     link: "https://fullstack-ai-blog-git-main-tanzimr-9285s-projects.vercel.app",
     github: "https://github.com/rahmantanzim/fullstack-ai-blog",
   },
   {
-    title: "End-to-end Secured chat with Python Cryptography",
+    title: "Secure E2E Encrypted Chat",
     description:
       "A lightweight, end-to-end encrypted chat application built with Python.",
     image: "/projects/project2.jpeg",
@@ -23,7 +23,7 @@ const Projects = () => {
   {
     title: "Full Website for an historical archives",
     description:
-      "Showingg full catalogue, publications, collections and contents of the archive which is the first ever private archives in Bangladesh",
+      "Developed a comprehensive digital catalog for Bangladesh's first private historical archive, featuring advanced collection management and publication displays.",
     image: "/projects/project3.jpeg",
     tags: ["Elementor", "WP theme customization", "UI", "UX"],
     link: "https://heritage-archives.org",
@@ -50,12 +50,12 @@ const Projects = () => {
       {/* Container div  */}
       <div className='container mx-auto px-6 relative z-10'>
         <div className='text-center mx-auto max-w-3xl mb-16'>
-          <span className='text-secondary-foreground text-sm font-medium tracking-wider animate-fade-in'>Featured work</span>
+          <span className='uppercase text-secondary-foreground text-sm font-medium tracking-wider animate-fade-in'>Featured work</span>
           <h2 className='text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground'>Projects that
             <span className='font-serif italic font-normal text-white'> make an impact</span>
           </h2>
           <p className='text-buted-foreground animate-fade-in animation-delay-200'>
-            A selection of my recent works, from university projects to complex web applications and business websites that serves real world problems.
+            A selection of my recent works, from university projects to complex web applications and business websites.
           </p>
         </div>
         {/* Projects grid  */}

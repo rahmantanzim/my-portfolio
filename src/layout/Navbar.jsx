@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
     { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
     { href: "#experience", label: "Experience" },
-    { href: "#testimonials", label: "Testimonials" },
+    { href: "#contact", label: "Contact" },
   ];
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
         </div>
         {/* CTA */}
         <div className='hidden md:block'>
-          <Button size="sm">Contact</Button>
+          <Button size="sm"><a href='#contact' >Contact</a></Button>
         </div>
         {/* Hamburger menu for mobile */}
         <button className='md:hidden p-2 text-foreground cursor-pointer ' onClick={()=> setIsMenuOpen((prev)=> !prev)}>

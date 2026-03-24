@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button';
+import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 import { Download } from 'lucide-react';
 import { FiGithub, FiInstagram, FiLinkedin } from 'react-icons/fi';
 const Hero = () => {
@@ -11,16 +12,18 @@ const Hero = () => {
   "HTML5",
   "CSS3",
   "JavaScript (ES6+)",
+  "Bootstrap",
   "TypeScript",
   "React",
+  "Context API",
   "Next.js",
   "Tailwind CSS",
-  "Context API",
   "Node.js",
   "Express.js",
   "Python",
   "PostgreSQL",
   "MongoDB",
+  "MySQL",
   "Prisma",
   "RESTful APIs",
   "GraphQL",
@@ -73,13 +76,16 @@ const Hero = () => {
             </div>
             {/* Title */}
             <div className='space-y-4'>
-              <h1 className='text-3xl md:text-4xl lg:text-6xl font-bold leading-tight animate-fade-in'>Building <span className='text-primary glow-text'> Scalable</span> Systems and <span className='text-primary glow-text'>Clean </span> Interfaces</h1>
-              <p className='animate-fade-in animation-delay-200 text-xl'>I am <span className='text-xl'>Tanzim Rahman</span> - a software engineer in training with expertise in React, TypeScript, Next.js. I develop performant, data-driven and responsive web applications with user-focused UI & UX</p>
+              <h1 className='text-4xl md:text-4xl lg:text-6xl font-bold leading-tight animate-fade-in'>Building <span className='text-primary glow-text'> Scalable</span> Systems and <span className='text-primary glow-text'>Clean </span> Interfaces</h1>
+              <p className='animate-fade-in animation-delay-200 text-lg text-muted-foreground'>I am <span className='text-xl'>Tanzim</span> - a software engineer in training with expertise in React, TypeScript, Next.js. I develop performant, data-driven and responsive web applications with user-focused UI & UX</p>
             </div>
             {/* CTA */}
             <div className='flex flex-wrap gap-4 animate-fade-in'>
-              <Button size="lg">Contact</Button>
-              <Button size="lg" className="bg-secondary/90 hover:bg-secondary cursor-pointer"> Download CV</Button>
+              <Button size="lg"> <a href='#contact'>Contact</a></Button>
+              <AnimatedBorderButton>
+                <Download className="w-5 h-5" />
+                Download CV
+              </AnimatedBorderButton>
             </div>
             {/* Social Links */}
             <div className='flex gap-4'>
