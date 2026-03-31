@@ -8,7 +8,7 @@ const Projects = () => {
       "A sophisticated MERN stack application integrated with the Gemini API to automate content generation and enhance user creativity through intelligent prompting.",
     image: "/projects/project1.jpeg",
     tags: ["React", "NodeJS", "Express", "MongoDB", "Tailwind CSS", "JWT","Vercel"],
-    link: "https://fullstack-ai-blog-git-main-tanzimr-9285s-projects.vercel.app",
+    link: "https://fullstack-ai-blog-eta.vercel.app",
     github: "https://github.com/rahmantanzim/fullstack-ai-blog",
   },
   {
@@ -17,7 +17,7 @@ const Projects = () => {
       "A lightweight, end-to-end encrypted chat application built with Python.",
     image: "/projects/project2.webp",
     tags: ["Python", "Flask", "SocketIO", "cryptography"],
-    link: "#",
+    link: "https://github.com/rahmantanzim/python-cryptography-chat",
     github: "https://github.com/rahmantanzim/python-cryptography-chat",
   },
   {
@@ -38,17 +38,15 @@ const Projects = () => {
     link: "https://www.behance.net/gallery/129215805/USER-GENERATED-REVIEW-CAMPAIGN-MICROSITE", 
     github: "#",
   },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard for a Local Business in Dhaka, Bangladesh.",
-    image: "/projects/project4.jpeg",
-    tags: ["Wordpress", "Elementor", "WooCommerce", "PHP"],
-    link: "https://konnyasundori.com",
-    github: "#",
-  },
-  
-  
+  // {
+  //   title: "E-Commerce Platform",
+  //   description:
+  //     "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard for a Local Business in Dhaka, Bangladesh.",
+  //   image: "/projects/project4.jpeg",
+  //   tags: ["Wordpress", "Elementor", "WooCommerce", "PHP"],
+  //   link: "https://konnyasundori.com",
+  //   github: "#",
+  // },
 ];
 
   return (

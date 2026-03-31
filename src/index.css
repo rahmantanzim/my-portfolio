@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+ *:focus, *:active {
+  color: #ffffff !important;
+  opacity: 1 !important; /* যদি আগে থেকে opacity কমানো থাকে সেটি ঠিক করবে */
+}
+
 @theme {
   --color-background: #0f1418;
   --color-foreground: #f0f2f5;

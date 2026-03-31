@@ -42,7 +42,7 @@ const About = () => {
               </p>
             </div>
             <div className='glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300'>
-              <p className='font-medium text-lg italic text-foreground'>My goal is to become a Software engineer where I can contribute to the society by solving real world challanges.</p>
+              <p className='font-medium text-lg italic text-foreground'>My goal is to become a Software engineer where I can contribute to the society by solving real world challenges.</p>
             </div>
           </div>
           {/* Right column  */}

@@ -195,7 +195,7 @@ const Contact = () => {
                 <span className="font-medium">Currently Available</span>
               </div>
               <p className="text-muted-foreground text-sm">
-                Currently pursuing my MASc. in Software Engineering at Memorial University. I am actively seeking Fall 2026 Co-op opportunities and freelance web development projects. Let’s connect to discuss how my technical skills can support your team!
+                Currently pursuing my MASc.in Software Engineering at Memorial University. I am actively seeking Fall 2026 Co-op opportunities and freelance web development projects. Let’s connect to discuss how my technical skills can support your team!
               </p>
             </div>
           </div>
