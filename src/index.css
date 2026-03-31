@@ -100,16 +100,28 @@
   }
   
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
+ @keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-    100% {
-      transform: translateX(-50%);
-    }
-
+/* animation only in big screen */
+@media (min-width: 768px) {
+  .animate-marquee {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    width: max-content; /* এটি নিশ্চিত করবে যেন কন্টেইনার ফুল উইডথ পায় */
   }
+}
+
+/* মোবাইলের জন্য স্ক্রলবার হাইড করা (ঐচ্ছিক) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
   .animate-fade-in {
     animation: fade-in 0.8s ease-out both;

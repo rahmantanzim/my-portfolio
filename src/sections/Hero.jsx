@@ -107,17 +107,27 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        {/* skill section  */}
+        {/* skill section */}
         <div className='mt-20 animate-fade-in animation-delay-600'>
-          <p className='mb-6 text-center uppercase'>Tech I am expert at</p>
-          <div className='relative md:overflow-hidden'>
-            <div className='flex wrap animate-marquee    gap-4 items-center justify-center'>
-              {[...skills, ...skills].map((skill, index) => {
-                return <div key={index} className='flex-shirnk-0 px-8 py-4 bg-primary/10 '>
-                  <span className='text-sm font-semibold' >{skill}</span>
-                </div>
-              })
-              }
+          <p className='mb-6 text-center uppercase tracking-widest text-sm text-gray-400'>
+            Tech I am expert at
+          </p>
+
+          <div className='relative overflow-hidden group'>
+            {/* md:overflow-hidden
+        overflow-x-auto
+    */}
+            <div className='flex overflow-x-auto md:overflow-hidden scrollbar-hide py-4'>
+              <div className='flex animate-marquee md:hover:[animation-play-state:paused] gap-4 items-center'>
+                {[...skills, ...skills].map((skill, index) => (
+                  <div
+                    key={index}
+                    className='flex-shrink-0 px-8 py-4 bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300'
+                  >
+                    <span className='text-sm font-semibold whitespace-nowrap'>{skill}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
