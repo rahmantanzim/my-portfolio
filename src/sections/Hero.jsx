@@ -85,7 +85,7 @@ const Hero = () => {
             </div>
             {/* CTA */}
             <div className='flex flex-wrap gap-4 animate-fade-in'>
-              <Button size="lg"> <a href='#contact'>Contact</a></Button>
+              {/* <Button size="lg"> <a href='#contact'>Contact</a></Button> */}
               <AnimatedBorderButton>
                 <Download className="w-5 h-5" />
                 <a target='_blank' href='./TanzimRahman.pdf'>Download CV</a>
@@ -110,8 +110,8 @@ const Hero = () => {
         {/* skill section  */}
         <div className='mt-20 animate-fade-in animation-delay-600'>
           <p className='mb-6 text-center uppercase'>Tech I am expert at</p>
-          <div className='relative overflow-hidden'>
-            <div className='flex animate-marquee gap-4 items-center justify-center'>
+          <div className='relative md:overflow-hidden'>
+            <div className='flex wrap animate-marquee    gap-4 items-center justify-center'>
               {[...skills, ...skills].map((skill, index) => {
                 return <div key={index} className='flex-shirnk-0 px-8 py-4 bg-primary/10 '>
                   <span className='text-sm font-semibold' >{skill}</span>

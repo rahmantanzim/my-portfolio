@@ -26,7 +26,7 @@ const About = () => {
     },
   ];
   return (
-    <section id='about' className='py-32 relative overflow-hidden'>
+    <section id='about' className='md:py-32 relative overflow-hidden'>
       <div className='container mx-auto px-6 relative z-10'>
         <div className='grid lg:grid-cols-2 gap-16 items-center'>
           {/* left col  */}
@@ -42,7 +42,7 @@ const About = () => {
               </p>
             </div>
             <div className='glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300'>
-              <p className='font-medium text-lg italic text-foreground'>My goal is to become a Software engineer where I can contribute to the soceity by solving real world challanges.</p>
+              <p className='font-medium text-lg italic text-foreground'>My goal is to become a Software engineer where I can contribute to the society by solving real world challanges.</p>
             </div>
           </div>
           {/* Right column  */}

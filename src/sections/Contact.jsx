@@ -16,8 +16,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "tanzim008@gmail.com",
-      href: "mailto:anzim008@gmail.com",
+      value: "hello@tanzim-rahman.com",
+      href: "mailto:tanzim008@gmail.com",
     },
     {
       icon: Phone,
@@ -53,7 +53,7 @@ const Contact = () => {
       if (aiResult.label !== 'clean' && aiResult.score > 0.75) {
         setSubmitStatus({
           type: "error",
-          message: "Oops! My AI thinks that's gibberish. Could you please write a clearer message?",
+          message: "Oops! That's gibberish. Could you please write something meaningful?",
         });
         setIsLoading(false);
         return; // <--- CRITICAL: This stops the EmailJS part from running!
@@ -94,7 +94,7 @@ const Contact = () => {
   }
 
   return (
-    <section id='contact' className='py-32 relative overflow-hidden'>
+    <section id='contact' className='py-16 md:py-32 relative overflow-hidden'>
       <div className='absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 counded-full blur-3xl -translate-y-1/2'></div>
       <div className='container mx-auto px-6 relative z-10'>
         <div className="text-center max-w-3xl mx-auto mb-16">

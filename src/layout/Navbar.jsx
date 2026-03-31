@@ -45,7 +45,7 @@ const Navbar = () => {
              {navLinks.map((link, index) => {
               return <a className='text-lg text-muted-foreground hover:text-foreground py-2' href={link.href} key={index}>{link.label}</a>
             })}
-            <Button size="sm">Contact</Button>
+            {/* <Button size="sm">Contact</Button> */}
           </div>
         </div>)}
     </header>
