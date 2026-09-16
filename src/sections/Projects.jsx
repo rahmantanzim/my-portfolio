@@ -1,54 +1,7 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+import { projects } from "@/data/projects";
 const Projects = () => {
-  const projects = [
-  {
-    title: "An AI-Powered Blogging Platform",
-    description:
-      "A sophisticated MERN stack application integrated with the Gemini API to automate content generation and enhance user creativity through intelligent prompting.",
-    image: "/projects/project1.jpeg",
-    tags: ["React", "NodeJS", "Express", "MongoDB", "Tailwind CSS", "JWT","Vercel"],
-    link: "https://fullstack-ai-blog-eta.vercel.app",
-    github: "https://github.com/rahmantanzim/fullstack-ai-blog",
-  },
-  {
-    title: "Secure E2E Encrypted Chat",
-    description:
-      "A lightweight, end-to-end encrypted chat application built with Python.",
-    image: "/projects/project2.webp",
-    tags: ["Python", "Flask", "SocketIO", "cryptography"],
-    link: "https://github.com/rahmantanzim/python-cryptography-chat",
-    github: "https://github.com/rahmantanzim/python-cryptography-chat",
-  },
-  {
-    title: "Full Website for a historical archives",
-    description:
-      "Developed a comprehensive digital catalog for Bangladesh's first private historical archive, featuring advanced collection management and publication displays.",
-    image: "/projects/project3.jpeg",
-    tags: ["Elementor", "WP theme customization", "UI", "UX"],
-    link: "https://heritage-archives.org",
-    github: "#",
-  },
-  {
-    title: "Laptop Review Microsite & Moderation Engine",
-    description:
-      "Engineered a high-traffic Laravel microsite for a laptop review campaign that reached 600K+ users. Developed a custom keyword-filtering system to moderate 170+ UGC submissions, ensuring only authentic, high-quality reviews qualified for rewards.",
-    image: "/projects/project5.webp",
-    tags: ["Laravel", "PHP", "MySQL", "Content Moderation"],
-    link: "https://www.behance.net/gallery/129215805/USER-GENERATED-REVIEW-CAMPAIGN-MICROSITE", 
-    github: "#",
-  },
-  // {
-  //   title: "E-Commerce Platform",
-  //   description:
-  //     "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard for a Local Business in Dhaka, Bangladesh.",
-  //   image: "/projects/project4.jpeg",
-  //   tags: ["Wordpress", "Elementor", "WooCommerce", "PHP"],
-  //   link: "https://konnyasundori.com",
-  //   github: "#",
-  // },
-];
-
   return (
     <section id='projects' className='py-16 md:py-32 relative overflow-hidden'>
       {/* Glowing affetc in background  */}
@@ -67,37 +20,40 @@ const Projects = () => {
         </div>
         {/* Projects grid  */}
         <div className='grid md:grid-cols-3 gap-8'>
-          {projects.map((project,index)=>{
+          {projects.map((project, index) => {
             return (<div key={index} className='group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1'>
-              <div className='relative overflow-hidden aspect-square'>
-                <img 
-                src={project.image} 
-                alt={project.title} 
-                className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' 
+              {/* <div className='relative overflow-hidden aspect-square'>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60'>
                   <div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
                     <a target="_blank" href={project.link} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
-                      <ArrowUpRight className="w-5 h-5"/>
+                      <ArrowUpRight className="w-5 h-5" />
                     </a>
-                    <a target="_blank" href={project.github} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
-                      <Github className="w-5 h-5"/>
-                    </a>
+                    {project.github !== "#" && (
+                      <a target="_blank" href={project.github} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
+                        <Github className="w-5 h-5" />
+                      </a>
+                    )}
+
                   </div>
                 </div>
-                
-              </div>
+
+              </div> */}
               {/* Grid-content  */}
-                <div className="p-6 space-y-4">
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors"><a href={project.link} target="_blank">{project.title}</a></h3>
-                    <a href={project.link} target="_blank"><ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover: text-primary group-hover:translate-x-1 group-hover: -translate-y-1 transition-all"/></a>
-                  </div>
-                  <p className="text-muted-foreground text-sm">{project.description} </p>
-                  <div className="flex flex-wrap gap-2">{project.tags.map((tag,index)=>{
-                      return <span className="px-4 py-1.5 rounded-full bg-surace text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300" key={index}>{tag}</span>
-                  })}</div>
+              <div className="p-6 space-y-4">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors"><a href={project.link} target="_blank">{project.title}</a></h3>
+                  <a href={project.link} target="_blank"><ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover: text-primary group-hover:translate-x-1 group-hover: -translate-y-1 transition-all" /></a>
                 </div>
+                <p className="text-muted-foreground text-sm">{project.description} </p>
+                <div className="flex flex-wrap gap-2">{project.tags.map((tag, index) => {
+                  return <span className="px-4 py-1.5 rounded-full bg-surace text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300" key={index}>{tag}</span>
+                })}</div>
+              </div>
             </div>)
           })}
         </div>
