@@ -9,6 +9,7 @@ const Hero = () => {
     { social: FiInstagram, link: "https://www.instagram.com/tanzim_r_" },
   ]
   const skills = [
+  
     "HTML5",
     "CSS3",
     "JavaScript (ES6+)",
@@ -78,7 +79,7 @@ const Hero = () => {
             {/* Title */}
             <div className='space-y-4'>
               <h1 className='text-4xl md:text-4xl lg:text-6xl font-bold leading-tight animate-fade-in'>Building <span className='text-primary glow-text'> Scalable</span> Systems and <span className='text-primary glow-text'>Clean </span> Interfaces</h1>
-              <p className='animate-fade-in animation-delay-200 text-lg text-muted-foreground'>I am <span className='text-xl'>Tanzim</span> - a software engineer in training with expertise in React, TypeScript, Next.js. I develop performant, data-driven and responsive web applications with user-focused UI & UX</p>
+              <p className='animate-fade-in animation-delay-200 text-lg text-muted-foreground'>I am <span className='text-xl'>Tanzim</span> - a software engineer  with expertise in React, TypeScript, Next.js. I develop performant, data-driven and responsive web applications with user-focused UI & UX</p>
             </div>
             {/* CTA */}
             <div className='flex flex-wrap gap-4 animate-fade-in'>
