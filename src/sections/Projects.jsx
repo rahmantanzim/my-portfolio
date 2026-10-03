@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { projects } from "@/data/projects";
 const Projects = () => {
+  const navigate = useNavigate();
   return (
     <section id='projects' className='py-16 md:py-32 relative overflow-hidden'>
       {/* Glowing affetc in background  */}
@@ -22,27 +24,6 @@ const Projects = () => {
         <div className='grid md:grid-cols-3 gap-8'>
           {projects.map((project, index) => {
             return (<div key={index} className='group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1'>
-              {/* <div className='relative overflow-hidden aspect-square'>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
-                />
-                <div className='absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60'>
-                  <div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
-                    <a target="_blank" href={project.link} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
-                      <ArrowUpRight className="w-5 h-5" />
-                    </a>
-                    {project.github !== "#" && (
-                      <a target="_blank" href={project.github} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
-                        <Github className="w-5 h-5" />
-                      </a>
-                    )}
-
-                  </div>
-                </div>
-
-              </div> */}
               {/* Grid-content  */}
               <div className="p-6 space-y-4">
                 <div className="flex justify-between items-start">
@@ -59,7 +40,7 @@ const Projects = () => {
         </div>
         {/* View All CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
+          <AnimatedBorderButton onClick={() => navigate('/projects')}>
             View All Projects
             <ArrowUpRight className="w-5 h-5" />
           </AnimatedBorderButton>

@@ -7,7 +7,7 @@ import AllProjectsPage from '@/pages/Projects/AllProjects'
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <Navbar/>
+      
       <main className="flex-grow">
         <Routes>
           {/* Main Landing Page */}

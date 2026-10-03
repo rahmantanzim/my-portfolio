@@ -1,5 +1,8 @@
+// src/data/projects.js
 export const projects = [
   {
+    slug: "ai-powered-blogging-platform",
+    category: "personal",
     title: "AI-Powered Blogging Platform",
     description:
       "A full-stack blogging platform built with the MERN stack and the Gemini API. Users can generate and refine article drafts using AI, manage posts, and sign in with JWT authentication.",
@@ -9,15 +12,19 @@ export const projects = [
     github: "https://github.com/rahmantanzim/fullstack-ai-blog",
   },
   {
+    slug: "swipe-based-behavioral-2fa",
+    category: "university",
     title: "Swipe-Based Behavioral 2FA System",
     description:
       "A continuous authentication system that verifies mobile users by analyzing their touchscreen swipe dynamics. Built with an Android client, a Python (scikit-learn) inference API using SVM/KNN classifiers, Firebase Realtime Database, and a React monitoring dashboard—backed by 232 automated tests across Pytest, Vitest, and Android suites.",
-    image: "/projects/project-swipe-2fa.webp", 
+    image: "/projects/project-swipe-2fa.webp",
     tags: ["Python", "React", "Android", "scikit-learn", "Firebase", "Pytest", "Vitest"],
-    link: "#", 
-    github: "https://github.com/Danmallan/Swipe-Based-2FA-Dashboard", 
+    link: "#",
+    github: "https://github.com/Danmallan/Swipe-Based-2FA-Dashboard",
   },
   {
+    slug: "html-json-parser-fuzzing",
+    category: "university",
     title: "HTML & JSON Parser Fuzzing Tools",
     description:
       "Python security testing tools that generate mutated HTML and JSON inputs using Context-Free Grammars (CFG) and Abstract Syntax Trees (AST) to stress-test parsers—uncovering a Denial of Service (DoS) bug during automated A/B testing.",
@@ -27,6 +34,8 @@ export const projects = [
     github: "https://github.com/rahmantanzim/cfg-html-fuzzer",
   },
   {
+    slug: "secure-e2e-encrypted-chat",
+    category: "university",
     title: "Secure E2E Encrypted Chat",
     description:
       "A real-time chat application built with Python and Flask-SocketIO. Uses RSA-OAEP public-key encryption so messages are encrypted locally and can only be read by the intended recipient.",
@@ -36,6 +45,8 @@ export const projects = [
     github: "https://github.com/rahmantanzim/python-cryptography-chat",
   },
   {
+    slug: "laptop-review-microsite",
+    category: "business",
     title: "Laptop Review Microsite & Moderation System",
     description:
       "A Laravel campaign microsite built for ASUS that reached 600K+ users. Includes a custom keyword filter to flag offensive language and an admin dashboard to review and approve 170+ user submissions.",
@@ -45,6 +56,8 @@ export const projects = [
     github: "#",
   },
   {
+    slug: "nextjs-typeorm-app",
+    category: "personal",
     title: "Full-Stack Next.js & TypeORM App",
     description:
       "A web application backend built with Next.js, TypeORM, and PostgreSQL on Supabase, designed to manage complex relational database schemas and run automated data migrations.",
@@ -54,6 +67,8 @@ export const projects = [
     github: "#",
   },
   {
+    slug: "dhongerbakso-ecommerce",
+    category: "business",
     title: "Dhongerbakso E-Commerce Store",
     description:
       "A localized WooCommerce store for an apparel brand. Features a custom single-page checkout, QR-code mobile payment verification, custom SMTP email routing, and automated courier booking.",
@@ -63,6 +78,8 @@ export const projects = [
     github: "#",
   },
   {
+    slug: "online-quiz-event-ticketing",
+    category: "business",
     title: "Online Quiz & Event Ticketing App",
     description:
       "A promotional quiz web app built with PHP and MySQL for an ASUS campaign. Handled and validated 3,000+ user registrations in two weeks and automated event ticket generation for winners.",
@@ -72,6 +89,8 @@ export const projects = [
     github: "#",
   },
   {
+    slug: "historical-archives-catalog",
+    category: "business",
     title: "Historical Archives Digital Catalog",
     description:
       "A custom digital catalog built for Bangladesh's first private historical archive, structured to organize, filter, and display historical records and academic publications.",
@@ -81,6 +100,8 @@ export const projects = [
     github: "#",
   },
   {
+    slug: "python-data-visualization",
+    category: "university",
     title: "Python Data Visualization Scripts",
     description:
       "A set of Jupyter Notebook scripts using Python, Pandas, and Matplotlib to clean large datasets and recreate complex multi-variable charts for data analysis.",
