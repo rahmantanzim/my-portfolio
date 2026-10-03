@@ -1,38 +1,9 @@
 import { Button } from '@/components/Button';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 import { Download } from 'lucide-react';
-import { FiGithub, FiInstagram, FiLinkedin } from 'react-icons/fi';
+import {skills} from '@/data/skills';
+import { socialLinks } from '@/data/contact';
 const Hero = () => {
-  const socialLinks = [
-    { social: FiGithub, link: "https://github.com/rahmantanzim" },
-    { social: FiLinkedin, link: "https://www.linkedin.com/in/tanzim-rahman08/" },
-    { social: FiInstagram, link: "https://www.instagram.com/tanzim_r_" },
-  ]
-  const skills = [
-  
-    "HTML5",
-    "CSS3",
-    "JavaScript (ES6+)",
-    "Bootstrap",
-    "TypeScript",
-    "React",
-    "Redux",
-    "Next.js",
-    "Tailwind CSS",
-    "Node.js",
-    "Express.js",
-    "Python",
-    "PostgreSQL",
-    "MongoDB",
-    "MySQL",
-    "RESTful APIs",
-    "JAVA",
-    "Git / GitHub",
-    "Docker",
-    "Vercel",
-    "CI/CD (GitHub Actions)",
-    "Jest"
-  ];
   return (
     <section className='min-h-screen flex items-center justify-center ohverflow-hidden'>
       <div className="absolute inset-0">

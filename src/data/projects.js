@@ -2,109 +2,91 @@ export const projects = [
   {
     title: "AI-Powered Blogging Platform",
     description:
-      "Full-stack MERN application integrated with Gemini AI for automated content generation, featuring secure JWT authentication and optimized MongoDB persistence.",
+      "A full-stack blogging platform built with the MERN stack and the Gemini API. Users can generate and refine article drafts using AI, manage posts, and sign in with JWT authentication.",
     image: "/projects/project1.jpeg",
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "Vercel"],
     link: "https://fullstack-ai-blog-eta.vercel.app",
     github: "https://github.com/rahmantanzim/fullstack-ai-blog",
   },
   {
-    title: "Distributed Microservices Architecture",
+    title: "Swipe-Based Behavioral 2FA System",
     description:
-      "Scalable e-commerce backend built with Java and Spring Boot, implementing RESTful APIs, JWT security, and PostgreSQL for high-throughput transactional processing.",
-    image: "/projects/project-microservices.webp",
-    tags: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "JWT", "Microservices"],
-    link: "#",
-    github: "#",
+      "A continuous authentication system that verifies mobile users by analyzing their touchscreen swipe dynamics. Built with an Android client, a Python (scikit-learn) inference API using SVM/KNN classifiers, Firebase Realtime Database, and a React monitoring dashboard—backed by 232 automated tests across Pytest, Vitest, and Android suites.",
+    image: "/projects/project-swipe-2fa.webp", 
+    tags: ["Python", "React", "Android", "scikit-learn", "Firebase", "Pytest", "Vitest"],
+    link: "#", 
+    github: "https://github.com/Danmallan/Swipe-Based-2FA-Dashboard", 
   },
   {
-    title: "Full-Stack Next.js & TypeORM Integration",
+    title: "HTML & JSON Parser Fuzzing Tools",
     description:
-      "Full-stack backend architecture leveraging Next.js, TypeORM, and PostgreSQL on Supabase to manage complex relational schemas and automated data migrations.",
-    image: "/projects/project-nextjs.webp",
-    tags: ["Next.js", "TypeORM", "PostgreSQL", "Supabase", "TypeScript"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Automated CI/CD & Regression Suite",
-    description:
-      "Multi-environment CI/CD pipeline using GitHub Actions and Docker, automating unit and integration test runs to ensure regression stability and frictionless deployment.",
-    image: "/projects/project-cicd.webp",
-    tags: ["GitHub Actions", "Docker", "CI/CD", "Jest", "DevOps"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "CFG HTML Parser Fuzzer",
-    description:
-      "Deterministic Context-Free Grammar fuzzer in Python utilizing AST mutation strategies and automated A/B testing to discover parser vulnerabilities and DoS bugs.",
+      "Python security testing tools that generate mutated HTML and JSON inputs using Context-Free Grammars (CFG) and Abstract Syntax Trees (AST) to stress-test parsers—uncovering a Denial of Service (DoS) bug during automated A/B testing.",
     image: "/projects/project7.jpeg",
-    tags: ["Python", "AST", "CFG Fuzzing", "Software Verification", "Security"],
+    tags: ["Python", "AST", "CFG Fuzzing", "Software Verification", "Security Testing"],
     link: "https://github.com/rahmantanzim/cfg-html-fuzzer",
     github: "https://github.com/rahmantanzim/cfg-html-fuzzer",
   },
   {
-    title: "JSON Parser Resilience Fuzzer",
-    description:
-      "Robust Python grammar fuzzer designed to assess JSON parser resilience, evaluate automated AST mutations, and uncover stack-exhaustion limits under stress testing.",
-    image: "/projects/project-json-fuzzer.webp",
-    tags: ["Python", "Security Testing", "CFG", "Grammar Fuzzing", "Algorithms"],
-    link: "#",
-    github: "#",
-  },
-  {
     title: "Secure E2E Encrypted Chat",
     description:
-      "Peer-to-peer real-time communication platform utilizing Python, Flask-SocketIO, and RSA-OAEP public-key cryptography for authenticated, zero-trust messaging.",
+      "A real-time chat application built with Python and Flask-SocketIO. Uses RSA-OAEP public-key encryption so messages are encrypted locally and can only be read by the intended recipient.",
     image: "/projects/project2.webp",
-    tags: ["Python", "Flask", "Socket.io", "Cryptography", "RSA-OAEP"],
+    tags: ["Python", "Flask", "Socket.io", "RSA-OAEP", "Cryptography"],
     link: "https://github.com/rahmantanzim/python-cryptography-chat",
     github: "https://github.com/rahmantanzim/python-cryptography-chat",
   },
   {
-    title: "Python Data Visualization Suite",
+    title: "Laptop Review Microsite & Moderation System",
     description:
-      "Data analysis pipeline using Pandas and Matplotlib to parse complex tabular datasets and programmatically generate publication-ready analytical visualizations.",
-    image: "/projects/project-dataviz.webp",
-    tags: ["Python", "Pandas", "Matplotlib", "Jupyter", "Data Analysis"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Laptop Review Microsite & Moderation Engine",
-    description:
-      "High-traffic Laravel platform serving 600K+ reach, featuring automated keyword sanitization and an admin portal to validate 170+ user-generated submissions.",
+      "A Laravel campaign microsite built for ASUS that reached 600K+ users. Includes a custom keyword filter to flag offensive language and an admin dashboard to review and approve 170+ user submissions.",
     image: "/projects/project5.webp",
     tags: ["Laravel", "PHP", "MySQL", "Content Moderation", "Bootstrap"],
     link: "https://www.behance.net/gallery/129215805/USER-GENERATED-REVIEW-CAMPAIGN-MICROSITE",
     github: "#",
   },
   {
-    title: "High-Traffic Promotional App",
+    title: "Full-Stack Next.js & TypeORM App",
     description:
-      "High-concurrency contest system built with PHP and MySQL, engineered to sanitize, secure, and process 3,000+ campaign user registrations over two weeks.",
-    image: "/projects/project-promo.webp",
-    tags: ["PHP", "MySQL", "Security", "Web Development"],
+      "A web application backend built with Next.js, TypeORM, and PostgreSQL on Supabase, designed to manage complex relational database schemas and run automated data migrations.",
+    image: "/projects/project-nextjs.webp",
+    tags: ["Next.js", "TypeScript", "TypeORM", "PostgreSQL", "Supabase"],
     link: "#",
     github: "#",
   },
   {
     title: "Dhongerbakso E-Commerce Store",
     description:
-      "Custom WooCommerce deployment featuring single-page checkout optimization, custom MFS QR code verification, dedicated SMTP routing, and automated courier APIs.",
+      "A localized WooCommerce store for an apparel brand. Features a custom single-page checkout, QR-code mobile payment verification, custom SMTP email routing, and automated courier booking.",
     image: "/projects/project6.webp",
-    tags: ["WordPress", "WooCommerce", "PHP", "CartFlows", "APIs"],
+    tags: ["WordPress", "WooCommerce", "PHP", "CartFlows", "SMTP"],
     link: "https://dhongerbakso.com",
     github: "#",
   },
   {
-    title: "Historical Archives Digital Portal",
+    title: "Online Quiz & Event Ticketing App",
     description:
-      "Comprehensive digital catalog and archive portal for historical collections, featuring structured taxonomy, collection filtering, and custom responsive layouts.",
+      "A promotional quiz web app built with PHP and MySQL for an ASUS campaign. Handled and validated 3,000+ user registrations in two weeks and automated event ticket generation for winners.",
+    image: "/projects/project-promo.webp",
+    tags: ["PHP", "MySQL", "Form Validation", "Web Development"],
+    link: "#",
+    github: "#",
+  },
+  {
+    title: "Historical Archives Digital Catalog",
+    description:
+      "A custom digital catalog built for Bangladesh's first private historical archive, structured to organize, filter, and display historical records and academic publications.",
     image: "/projects/project3.jpeg",
-    tags: ["WordPress", "PHP", "UI/UX", "Theme Customization"],
+    tags: ["WordPress", "Elementor", "UI/UX", "Custom Theme"],
     link: "https://heritage-archives.org",
+    github: "#",
+  },
+  {
+    title: "Python Data Visualization Scripts",
+    description:
+      "A set of Jupyter Notebook scripts using Python, Pandas, and Matplotlib to clean large datasets and recreate complex multi-variable charts for data analysis.",
+    image: "/projects/project-dataviz.webp",
+    tags: ["Python", "Pandas", "Matplotlib", "Jupyter"],
+    link: "#",
     github: "#",
   },
 ];

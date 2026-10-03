@@ -1,0 +1,25 @@
+export const skills = [
+  
+    "HTML5",
+    "CSS3",
+    "JavaScript (ES6+)",
+    "Bootstrap",
+    "TypeScript",
+    "React",
+    "Redux",
+    "Next.js",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "Python",
+    "PostgreSQL",
+    "MongoDB",
+    "MySQL",
+    "RESTful APIs",
+    "JAVA",
+    "Git / GitHub",
+    "Docker",
+    "Vercel",
+    "CI/CD (GitHub Actions)",
+    "Jest"
+  ];

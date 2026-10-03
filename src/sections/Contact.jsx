@@ -10,28 +10,9 @@ import { Button } from "@/components/Button";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ValidateMessage } from "@/utils/ValidateMessage";
+import { contactInfo } from "@/data/contact";
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "hello@tanzim-rahman.com",
-      href: "mailto:tanzim008@gmail.com",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+1 (709) 764-7769",
-      href: "tel:+17097647769",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "St. John's, NL, Canada",
-      href: "#",
-    },
-  ];
   const [formData, setFormData] = useState({
     name: "",
     email: "",

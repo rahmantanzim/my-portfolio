@@ -1,7 +1,5 @@
-import React from 'react';
-// লোগোগুলি ইম্পোর্ট করুন। আপনার প্রজেক্টের পাথ অনুযায়ী এই পাথগুলো পরিবর্তন করুন।
-import metaLogo from './path/to/meta-logo.png'; // Meta লোগোর পাথ
-import courseraLogo from './path/to/coursera-logo.png'; // Coursera লোগোর পাথ
+import metaLogo from './path/to/meta-logo.png'; 
+import courseraLogo from './path/to/coursera-logo.png'; 
 
 const CertificateCard = () => {
   const certificate = {

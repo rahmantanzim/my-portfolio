@@ -1,6 +1,5 @@
 import { InferenceClient } from "@huggingface/inference";
 
-// Create the client using your Vite environment variable
 const client = new InferenceClient(import.meta.env.VITE_HF_ACCESS_TOKEN);
 
 export const ValidateMessage = async (text) => {
@@ -12,7 +11,7 @@ export const ValidateMessage = async (text) => {
     }
 
     try {
-        // Using the SDK method from your screenshot
+        //SDK Method
         const output = await client.textClassification({
             model: "madhurjindal/autonlp-Gibberish-Detector-492513457",
             inputs: text,

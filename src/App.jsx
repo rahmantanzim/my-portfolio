@@ -1,31 +1,25 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from '@/layout/Navbar'
-import Hero from '@/sections/Hero'
-import About from '@/sections/About'
-import Projects from '@/sections/Projects'
-import Experience from '@/sections/Experience'
-import Contact from '@/sections/Contact'
-import Footer from '@/layout/Footer'
+import Footer from '@/layout/Footer'  
+import Home from '@/pages/Home/Home'
+import AllProjectsPage from '@/pages/Projects/AllProjects'
 function App() {
   return (
-    <div className="min-h-screen overfow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar/>
-      <main>
-        <Hero/>
-        {/* <About/> */}
-        <Projects/>
-        <Experience/>
-        <Contact/> 
-        <Footer/>
-        {/* <Hero/>
-        <About/>
-      
-        <Projects/>
-        <Experience/>
-        <Testimonials/>
-        <Contact/> */}
+      <main className="flex-grow">
+        <Routes>
+          {/* Main Landing Page */}
+          <Route path="/" element={<Home/>} />
+          
+          {/*  A dedicated archive/directory page for all projects */}
+          <Route path="/projects" element={<AllProjectsPage />} />
+          
+        </Routes>
       </main>
+      <Footer/>
+
     </div>
   )
 }
