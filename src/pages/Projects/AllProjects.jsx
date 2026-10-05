@@ -15,32 +15,34 @@ export default function AllProjects() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeTag, setActiveTag] = useState("All");
 
-  // Extract unique tags from university projects for the secondary filter
-  const universityTags = useMemo(() => {
-    const uniProjects = projects.filter((p) => p.category === "university");
+  // Extract unique tags based on the currently selected category
+  const availableTags = useMemo(() => {
+    const relevantProjects =
+      activeCategory === "all"
+        ? projects
+        : projects.filter((p) => p.category === activeCategory);
+
     const tagSet = new Set();
-    uniProjects.forEach((p) => p.tags?.forEach((tag) => tagSet.add(tag)));
+    relevantProjects.forEach((p) => p.tags?.forEach((tag) => tagSet.add(tag)));
     return ["All", ...Array.from(tagSet)];
-  }, []);
+  }, [activeCategory]);
 
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
-    setActiveTag("All");
+    setActiveTag("All"); // Reset tag filter when switching categories
   };
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =
       activeCategory === "all" || project.category === activeCategory;
     const matchesTag =
-      activeCategory !== "university" ||
-      activeTag === "All" ||
-      project.tags?.includes(activeTag);
+      activeTag === "All" || project.tags?.includes(activeTag);
 
     return matchesCategory && matchesTag;
   });
 
   return (
-    <section className="max-w-4xl mx-auto px-6 pt-32 pb-24 min-h-screen">
+    <section className="max-w-4xl mx-auto px-6 pt-16 pb-24 min-h-screen">
       {/* Back to Home */}
       <Link
         to="/"
@@ -77,28 +79,26 @@ export default function AllProjects() {
         })}
       </nav>
 
-      {/* Secondary Filter (Only shown when "University Project" is selected) */}
-      {activeCategory === "university" && (
-        <div className="flex flex-wrap items-center gap-2 mb-8 text-xs">
-          <span className="text-muted-foreground mr-1">Filter by tech:</span>
-          {universityTags.map((tag) => {
-            const isTagActive = activeTag === tag;
-            return (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                className={`px-2.5 py-1 rounded border transition-colors cursor-pointer ${
-                  isTagActive
-                    ? "border-primary text-foreground bg-primary/10 font-medium"
-                    : "border-border text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {tag}
-              </button>
-            );
-          })}
-        </div>
-      )}
+      {/* Secondary Tech Filter (Now visible for all categories) */}
+      <div className="flex flex-wrap items-center gap-2 mb-8 text-xs">
+        <span className="text-muted-foreground mr-1">Filter by tech:</span>
+        {availableTags.map((tag) => {
+          const isTagActive = activeTag === tag;
+          return (
+            <button
+              key={tag}
+              onClick={() => setActiveTag(tag)}
+              className={`px-2.5 py-1 rounded border transition-colors cursor-pointer ${
+                isTagActive
+                  ? "border-primary text-foreground bg-primary/10 font-medium"
+                  : "border-border text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {tag}
+            </button>
+          );
+        })}
+      </div>
 
       {/* Minimal Project List */}
       <div className="divide-y divide-border">

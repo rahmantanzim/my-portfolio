@@ -3,9 +3,10 @@ export const projects = [
   {
     slug: "ai-powered-blogging-platform",
     category: "personal",
+    featured: true,
     title: "AI-Powered Blogging Platform",
     description:
-      "A full-stack blogging platform built with the MERN stack and the Gemini API. Users can generate and refine article drafts using AI, manage posts, and sign in with JWT authentication.",
+      "Full-stack MERN blogging app integrated with the Gemini API. Includes JWT authentication, an admin dashboard for managing posts and comments, and an editor tool to generate article drafts.",
     image: "/projects/project1.jpeg",
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "Vercel"],
     link: "https://fullstack-ai-blog-eta.vercel.app",
@@ -14,9 +15,10 @@ export const projects = [
   {
     slug: "swipe-based-behavioral-2fa",
     category: "university",
+    featured: true,
     title: "Swipe-Based Behavioral 2FA System",
     description:
-      "A continuous authentication system that verifies mobile users by analyzing their touchscreen swipe dynamics. Built with an Android client, a Python (scikit-learn) inference API using SVM/KNN classifiers, Firebase Realtime Database, and a React monitoring dashboard—backed by 232 automated tests across Pytest, Vitest, and Android suites.",
+      "Mobile authentication system that verifies users based on how they swipe on their screen. Connects an Android app, a Python (scikit-learn) API running SVM and KNN models, Firebase, and a React dashboard. Tested with 232 unit and integration tests across Pytest, Vitest, and Android.",
     image: "/projects/project-swipe-2fa.webp",
     tags: ["Python", "React", "Android", "scikit-learn", "Firebase", "Pytest", "Vitest"],
     link: "#",
@@ -25,9 +27,10 @@ export const projects = [
   {
     slug: "html-json-parser-fuzzing",
     category: "university",
+    featured: true,
     title: "HTML & JSON Parser Fuzzing Tools",
     description:
-      "Python security testing tools that generate mutated HTML and JSON inputs using Context-Free Grammars (CFG) and Abstract Syntax Trees (AST) to stress-test parsers—uncovering a Denial of Service (DoS) bug during automated A/B testing.",
+      "Automated testing tools in Python that generate and mutate HTML and JSON inputs using Context-Free Grammars (CFG) and ASTs. Built to test parser reliability and exception handling, which caught a Denial of Service (DoS) bug during A/B testing.",
     image: "/projects/project7.jpeg",
     tags: ["Python", "AST", "CFG Fuzzing", "Software Verification", "Security Testing"],
     link: "https://github.com/rahmantanzim/cfg-html-fuzzer",
@@ -36,9 +39,10 @@ export const projects = [
   {
     slug: "secure-e2e-encrypted-chat",
     category: "university",
+    featured: true,
     title: "Secure E2E Encrypted Chat",
     description:
-      "A real-time chat application built with Python and Flask-SocketIO. Uses RSA-OAEP public-key encryption so messages are encrypted locally and can only be read by the intended recipient.",
+      "Real-time messaging app built with Python and Flask-SocketIO. Implements RSA-OAEP public-key encryption so messages are encrypted on the client side before transmission and can only be decrypted by the recipient.",
     image: "/projects/project2.webp",
     tags: ["Python", "Flask", "Socket.io", "RSA-OAEP", "Cryptography"],
     link: "https://github.com/rahmantanzim/python-cryptography-chat",
@@ -47,9 +51,10 @@ export const projects = [
   {
     slug: "laptop-review-microsite",
     category: "business",
+    featured: true,
     title: "Laptop Review Microsite & Moderation System",
     description:
-      "A Laravel campaign microsite built for ASUS that reached 600K+ users. Includes a custom keyword filter to flag offensive language and an admin dashboard to review and approve 170+ user submissions.",
+      "Laravel and MySQL campaign site built for ASUS that handled 600K+ visitors. Features an automated keyword filter to block profanity and an admin panel used to review and approve 170+ user-submitted reviews.",
     image: "/projects/project5.webp",
     tags: ["Laravel", "PHP", "MySQL", "Content Moderation", "Bootstrap"],
     link: "https://www.behance.net/gallery/129215805/USER-GENERATED-REVIEW-CAMPAIGN-MICROSITE",
@@ -58,9 +63,10 @@ export const projects = [
   {
     slug: "nextjs-typeorm-app",
     category: "personal",
+    featured: true,
     title: "Full-Stack Next.js & TypeORM App",
     description:
-      "A web application backend built with Next.js, TypeORM, and PostgreSQL on Supabase, designed to manage complex relational database schemas and run automated data migrations.",
+      "Web application built with Next.js, TypeScript, TypeORM, and PostgreSQL (Supabase). Set up to handle relational database modeling, server-side data fetching, and automated schema migrations.",
     image: "/projects/project-nextjs.webp",
     tags: ["Next.js", "TypeScript", "TypeORM", "PostgreSQL", "Supabase"],
     link: "#",
@@ -69,9 +75,10 @@ export const projects = [
   {
     slug: "dhongerbakso-ecommerce",
     category: "business",
+    featured: false,
     title: "Dhongerbakso E-Commerce Store",
     description:
-      "A localized WooCommerce store for an apparel brand. Features a custom single-page checkout, QR-code mobile payment verification, custom SMTP email routing, and automated courier booking.",
+      "WooCommerce store built for an apparel brand. Configured a custom single-page checkout with CartFlows, mobile payment verification via QR codes, SMTP email delivery, and courier API integration.",
     image: "/projects/project6.webp",
     tags: ["WordPress", "WooCommerce", "PHP", "CartFlows", "SMTP"],
     link: "https://dhongerbakso.com",
@@ -80,9 +87,10 @@ export const projects = [
   {
     slug: "online-quiz-event-ticketing",
     category: "business",
+    featured: false,
     title: "Online Quiz & Event Ticketing App",
     description:
-      "A promotional quiz web app built with PHP and MySQL for an ASUS campaign. Handled and validated 3,000+ user registrations in two weeks and automated event ticket generation for winners.",
+      "PHP and MySQL quiz platform built for an ASUS promotional event. Processed and validated over 3,000 user registrations in two weeks and generated downloadable event tickets for winners.",
     image: "/projects/project-promo.webp",
     tags: ["PHP", "MySQL", "Form Validation", "Web Development"],
     link: "#",
@@ -91,9 +99,10 @@ export const projects = [
   {
     slug: "historical-archives-catalog",
     category: "business",
+    featured: false,
     title: "Historical Archives Digital Catalog",
     description:
-      "A custom digital catalog built for Bangladesh's first private historical archive, structured to organize, filter, and display historical records and academic publications.",
+      "Archive website built with WordPress and Elementor for Heritage Archives Bangladesh. Structured custom layouts to catalog, search, and read historical documents and academic publications.",
     image: "/projects/project3.jpeg",
     tags: ["WordPress", "Elementor", "UI/UX", "Custom Theme"],
     link: "https://heritage-archives.org",
@@ -102,9 +111,10 @@ export const projects = [
   {
     slug: "python-data-visualization",
     category: "university",
+    featured: false,
     title: "Python Data Visualization Scripts",
     description:
-      "A set of Jupyter Notebook scripts using Python, Pandas, and Matplotlib to clean large datasets and recreate complex multi-variable charts for data analysis.",
+      "Jupyter Notebook scripts using Python, Pandas, and Matplotlib to clean raw datasets and plot custom multi-variable scatter and connected dot charts.",
     image: "/projects/project-dataviz.webp",
     tags: ["Python", "Pandas", "Matplotlib", "Jupyter"],
     link: "#",
