@@ -1,198 +1,377 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-html {
-  scroll-behavior: smooth;
-}
- *:focus, *:active {
-  color: #ffffff !important;
-  opacity: 1 !important; /* যদি আগে থেকে opacity কমানো থাকে সেটি ঠিক করবে */
-}
-
+/* ------------------------------------------------------------------ */
+/* Design tokens — original teal-on-dark identity                      */
+/* ------------------------------------------------------------------ */
 @theme {
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
   --color-background: #0f1418;
   --color-foreground: #f0f2f5;
-
   --color-card: #141a1f;
+  --color-surface: #1a2329;
 
   --color-primary: #20b2a6;
-  --color-primary-foreground: #ffffff;
+  --color-primary-hover: #2ccabd;
+  --color-primary-foreground: #04201d;
 
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
-
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
-
+  --color-muted-foreground: #8a949f;
   --color-border: #242b32;
+  --color-border-strong: #34404a;
 
-  --radius: 0.75rem;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
 
-  --color-highlight: #f5a623;
-  --color-surface: #1a2329;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-drift: slow-drift 24s ease-in-out infinite;
 }
 
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 @layer base {
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .font-serif {
-    font-family: "Playfair Display", serif;
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
   }
 
-  .glow-text {
-    text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  /* Keep anchored sections clear of the fixed navbar. */
+  [id] {
+    scroll-margin-top: 5rem;
   }
 
-  .glow-border {
-    text-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
 @layer components {
+  .container-page {
+    width: 100%;
+    max-width: 96rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+
+    @media (min-width: 768px) {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .section {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    padding-block: 5rem;
+    outline: none;
+
+    @media (min-width: 768px) {
+      padding-block: 7.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  /* Frosted panels — the site's signature surface */
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
     backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
   }
 
   .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 82%, transparent);
     backdrop-filter: blur(24px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent);
   }
 
-}
+  .glow-text {
+    text-shadow: 0 0 32px color-mix(in srgb, var(--color-primary) 55%, transparent);
+  }
 
-@layer utilities {
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(1rem);
-      filter: blur(10px);
+  .glow-border {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-primary) 25%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+
+  /* Cards that light up on hover */
+  .card-hover {
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s,
+      transform 0.3s;
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+      box-shadow: 0 0 32px color-mix(in srgb, var(--color-primary) 12%, transparent);
+      transform: translateY(-2px);
     }
+  }
 
-    to {
-      opacity: 1;
+  /* Soft ambient light behind sections */
+  .ambient {
+    position: absolute;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 9999px;
+    filter: blur(80px);
+    background: color-mix(in srgb, var(--color-primary) 7%, transparent);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Thin teal-to-transparent ring around the hero portrait */
+  .portrait-ring {
+    background: conic-gradient(
+      from 200deg,
+      var(--color-primary),
+      transparent 35%,
+      transparent 65%,
+      color-mix(in srgb, var(--color-primary) 60%, transparent)
+    );
+    mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  }
+
+  /* Vertical timeline line */
+  .timeline-line {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-primary) 75%, transparent),
+      color-mix(in srgb, var(--color-primary) 30%, transparent) 60%,
+      transparent
+    );
+    box-shadow:
+      0 0 24px color-mix(in srgb, var(--color-primary) 40%, transparent),
+      0 0 60px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  /* Animated SVG border (Résumé button) */
+  .animated-border-path {
+    stroke-dasharray: 400 550;
+    stroke-dashoffset: 400;
+  }
+
+  .animated-border:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 14%, transparent);
+    box-shadow: 0 0 24px color-mix(in srgb, var(--color-primary) 22%, transparent);
+  }
+
+  .animated-border:hover .animated-border-path,
+  .animated-border:focus-visible .animated-border-path {
+    animation: animated-border 1.6s linear infinite;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-weight: 500;
+    transform: translateY(-200%);
+    transition: transform 0.2s;
+
+    &:focus {
       transform: translateY(0);
-      filter: blur(0px);
-
     }
   }
 
-  @keyframes slow-drift {
-
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-
-    25% {
-      transform: translate(10px, -30px);
-    }
-
-    50% {
-      transform: translate(-15px, -20px);
-    }
-
-    75% {
-      transform: translate(30px, 10px);
-    }
-
+  /* Makes a whole card clickable from one link, without nesting links. */
+  .stretched-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
   }
-  
 
- @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+  .project-placeholder {
+    background:
+      radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 60%),
+      linear-gradient(135deg, var(--color-surface), var(--color-card));
+  }
 
-/* animation only in big screen */
-@media (min-width: 768px) {
-  .animate-marquee {
-    display: flex;
-    animation: marquee 30s linear infinite;
-    width: max-content; /* এটি নিশ্চিত করবে যেন কন্টেইনার ফুল উইডথ পায় */
+  /* Fade the edges of the skills strip */
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  /* Case-study body text */
+  .prose-section {
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    p,
+    li {
+      color: var(--color-muted-foreground);
+      line-height: 1.8;
+      text-wrap: pretty;
+    }
+    ul {
+      display: grid;
+      gap: 0.5rem;
+      padding-left: 1.25rem;
+      list-style: disc;
+    }
+    li::marker {
+      color: var(--color-primary);
+    }
   }
 }
 
-/* মোবাইলের জন্য স্ক্রলবার হাইড করা (ঐচ্ছিক) */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    filter: blur(8px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out,
+      filter 0.8s ease-out;
+  }
 
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* Hero entrance — staggered with animation-delay-* */
   .animate-fade-in {
-    animation: fade-in 0.8s ease-out both;
+    animation: fade-in 0.9s ease-out both;
   }
-
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
- 
-
   .animation-delay-100 {
     animation-delay: 100ms;
   }
-
   .animation-delay-200 {
     animation-delay: 200ms;
   }
-
   .animation-delay-300 {
     animation-delay: 300ms;
   }
-
   .animation-delay-400 {
     animation-delay: 400ms;
   }
-
-  .animation-delay-500 {
-    animation-delay: 500ms;
-  }
-
   .animation-delay-600 {
     animation-delay: 600ms;
   }
 
-  .animation-delay-800 {
-    animation-delay: 800ms;
+  .pulse-dot {
+    animation: pulse-dot 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
-  @keyframes animated-border {
-    0% {
-      stroke-dashoffset: 400;
-    }
-    100% {
-      stroke-dashoffset: -550;
-    }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes slow-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -30px);
+  }
+  50% {
+    transform: translate(-15px, -20px);
+  }
+  75% {
+    transform: translate(30px, 10px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes animated-border {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: -550;
+  }
+}
+
+@keyframes pulse-dot {
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  .group:hover .animated-border-path {
-    animation: animated-border 1.5s linear infinite;
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 
-  .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+  .particles {
+    display: none;
   }
 
-  .timeline-glow {
-    box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
 }
