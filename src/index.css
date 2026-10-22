@@ -1,188 +1,208 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                       */
+/* ------------------------------------------------------------------ */
 @theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
   --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
-
-  --color-card: #141a1f;
-
-  --color-primary: #20b2a6;
-  --color-primary-foreground: #ffffff;
-
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
-
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
-
-  --color-border: #242b32;
-
-  --radius: 0.75rem;
-
-  --color-highlight: #f5a623;
+  --color-foreground: #eef1f4;
+  --color-card: #141b20;
   --color-surface: #1a2329;
+
+  --color-primary: #2bbfb2;
+  --color-primary-hover: #4dd0c4;
+  --color-primary-foreground: #04201d;
+
+  --color-muted-foreground: #8b95a1;
+  --color-border: #232c33;
+  --color-border-strong: #34404a;
+
+  --color-success: #4ade80;
+  --color-danger: #f87171;
 }
 
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 @layer base {
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Roboto Mono", monospace;
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .font-serif {
-    font-family: "Playfair Display", serif;
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
   }
 
-  .glow-text {
-    text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  /* Keep anchored sections clear of the fixed navbar. */
+  [id] {
+    scroll-margin-top: 5rem;
   }
 
-  .glow-border {
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
 @layer components {
-  .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
-    backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
-  }
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
 
-  .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
-    backdrop-filter: blur(24px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
-  }
-
-}
-
-@layer utilities {
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(1rem);
-      filter: blur(10px);
+    @media (min-width: 768px) {
+      padding-inline: 2rem;
     }
+  }
 
-    to {
-      opacity: 1;
+  .section {
+    padding-block: 4.5rem;
+    outline: none;
+
+    @media (min-width: 768px) {
+      padding-block: 6.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-weight: 500;
+    transform: translateY(-200%);
+    transition: transform 0.2s;
+
+    &:focus {
       transform: translateY(0);
-      filter: blur(0px);
-
     }
   }
 
-  @keyframes slow-drift {
+  /* Makes a whole card clickable from one link, without nesting links. */
+  .stretched-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
 
-    0%,
+  .hero-glow {
+    background: radial-gradient(
+      ellipse 60% 50% at 30% 0%,
+      color-mix(in srgb, var(--color-primary) 14%, transparent),
+      transparent 70%
+    );
+  }
+
+  .project-placeholder {
+    background:
+      radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 60%),
+      linear-gradient(135deg, var(--color-surface), var(--color-card));
+  }
+
+  /* Case-study body text */
+  .prose-section {
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+    p,
+    li {
+      color: var(--color-muted-foreground);
+      line-height: 1.75;
+      text-wrap: pretty;
+    }
+    ul {
+      display: grid;
+      gap: 0.5rem;
+      padding-left: 1.25rem;
+      list-style: disc;
+    }
+    li::marker {
+      color: var(--color-primary);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes pulse-dot {
+    75%,
     100% {
-      transform: translate(0, 0);
+      transform: scale(2.2);
+      opacity: 0;
     }
-
-    25% {
-      transform: translate(10px, -30px);
-    }
-
-    50% {
-      transform: translate(-15px, -20px);
-    }
-
-    75% {
-      transform: translate(30px, 10px);
-    }
-
-  }
-  
-
- @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* animation only in big screen */
-@media (min-width: 768px) {
-  .animate-marquee {
-    display: flex;
-    animation: marquee 30s linear infinite;
-    width: max-content; /* এটি নিশ্চিত করবে যেন কন্টেইনার ফুল উইডথ পায় */
   }
 }
 
-/* মোবাইলের জন্য স্ক্রলবার হাইড করা (ঐচ্ছিক) */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out both;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-
- 
-
-  .animation-delay-100 {
-    animation-delay: 100ms;
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
-  .animation-delay-200 {
-    animation-delay: 200ms;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
-  .animation-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-500 {
-    animation-delay: 500ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-
-  .animation-delay-800 {
-    animation-delay: 800ms;
-  }
-  @keyframes animated-border {
-    0% {
-      stroke-dashoffset: 400;
-    }
-    100% {
-      stroke-dashoffset: -550;
-    }
-  }
-
-  .group:hover .animated-border-path {
-    animation: animated-border 1.5s linear infinite;
-  }
-
-  .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
-  }
-
-  .timeline-glow {
-    box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
-  }
-
 }
