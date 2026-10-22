@@ -40,12 +40,12 @@ export const projects: Project[] = [
     slug: 'swipe-based-2fa',
     title: 'Swipe-Based 2FA System',
     summary:
-      'Android app that confirms a user’s identity from how they swipe, using SVM and KNN classifiers. I built the live React dashboard.',
+      'Behavioural second factor for Android that checks who is using the phone from how they swipe. I built the React admin dashboard for live verification logs and model metrics.',
     category: 'university',
     context: 'Team of 3 · Course project',
     featured: true,
     order: 2,
-    image: null,
+    image: { src: '/projects/swipe-2fa-logs.webp', alt: 'Swipe 2FA admin dashboard showing authentication logs' },
     tags: ['React', 'Vitest', 'Python', 'scikit-learn', 'Firebase', 'Android'],
     links: {
       live: null,
@@ -53,14 +53,31 @@ export const projects: Project[] = [
     },
     caseStudy: {
       overview:
-        'A behavioural second factor for mobile login: instead of a code, the system checks whether the way someone swipes matches the account owner. An Android app collects touch data, a Python service classifies it with SVM and KNN models, and Firebase connects the pieces.',
-      role: 'Built the React dashboard that shows live touch data from the phone as it comes in.',
+        'Passwords only protect the first login. Once a phone is unlocked or handed over, an app needs a lightweight way to tell whether the person using it is still the owner. This system uses swipe behaviour as a second factor: the Android app extracts features from each swipe, a Python service with scikit-learn decides accept or reject with a confidence score, Firebase stores sessions and logs, and a React dashboard shows what is happening.',
+      role: 'Built the React admin dashboard and its Vitest test suite. The work was split three ways — Android app, Python backend and ML, and dashboard — and run in four short sprints with feature branches and pull-request reviews.',
       highlights: [
-        'Dashboard streams screen positions and user details from the phone in real time.',
-        'Classification with SVM and KNN models (scikit-learn).',
-        'Android app, Python API, Firebase and React dashboard working together.',
+        'System overview: enrolled users, verification count, success rate, average latency and a 7-day performance trend.',
+        'Authentication log viewer with search, success/failed filters and time ranges, showing each decision with its confidence score and reason.',
+        'Per-user verification performance (training status, acceptance rate, enrollment progress) and an evidence export.',
+        'Reads live sessions, attempts and model metrics from Firebase Realtime Database.',
+        'Classifier is a pluggable strategy (KNN baseline, SVM default), so models can be compared without changing the rest of the pipeline.',
       ],
-      outcomes: ['232 automated tests across Pytest and Vitest.'],
+      outcomes: [
+        '232 automated tests, all passing: 43 dashboard Vitest, 162 backend Pytest, 27 Android unit and instrumented tests.',
+        'Met the evaluation targets set for the model: top-1 accuracy ≥ 85%, macro-F1 ≥ 0.80, false-accept rate ≤ 5%, false-reject rate ≤ 10%, and 95th-percentile decision latency ≤ 2 s.',
+      ],
+      gallery: [
+        {
+          src: '/projects/swipe-2fa-architecture.webp',
+          alt: 'Architecture diagram: Android app, Python backend, Firebase Realtime Database and React dashboard',
+          caption: 'Architecture: the Android app sends swipe features to the Python /predict API; the dashboard reads metrics and logs from Firebase.',
+        },
+        {
+          src: '/projects/swipe-2fa-dashboard.webp',
+          alt: 'Swipe 2FA dashboard system overview with user, verification, success-rate and latency cards',
+          caption: 'Dashboard overview (test data from development).',
+        },
+      ],
     },
   },
   {
@@ -97,7 +114,7 @@ export const projects: Project[] = [
     slug: 'review-campaign-microsite',
     title: 'Review Campaign Microsite',
     summary:
-      'Laravel campaign site where laptop buyers submitted reviews, with an admin panel and keyword filter so the client’s team could moderate entries themselves.',
+      'Bilingual Laravel campaign site where ASUS laptop buyers submitted reviews to win a prize, with an admin panel the client used to moderate entries and edit every page without a developer.',
     category: 'business',
     context: 'Client work at HYPE Dhaka · ASUS campaign',
     featured: true,
@@ -110,12 +127,31 @@ export const projects: Project[] = [
     },
     caseStudy: {
       overview:
-        'A user-generated review campaign for an ASUS laptop promotion. Buyers submitted reviews through the microsite, and the client’s marketing team reviewed and published them without needing a developer.',
-      role: 'Built the microsite and admin panel in Laravel as one of two agency developers.',
+        'ASUS wanted laptop buyers in Bangladesh to post honest reviews online. The campaign site explained the rules in Bengali and English, collected each entry with proof of purchase, and published the winners. The client’s marketing team ran the whole campaign from an admin panel, without asking the agency for changes.',
+      role: 'Built the microsite and admin panel in Laravel as one of two developers at the agency.',
       highlights: [
-        'Review submission flow built with Laravel, MySQL and Bootstrap.',
-        'Admin panel for the client’s team to review, approve and manage entries.',
-        'Automated keyword filter that blocks profanity before a review reaches moderators.',
+        'Bengali and English landing page explaining the three steps, the prize, review criteria and terms.',
+        'Entry form collecting the buyer’s review link, place of purchase, a screenshot of the review and the purchase invoice, with server-side validation.',
+        'Admin dashboard listing every entry with search, sorting and pagination, plus quick access to each review and invoice.',
+        'Content editor so the client could change all landing-page text, images, review criteria and terms themselves.',
+        'Keyword filter that blocks profanity before a review reaches moderators, and a results page announcing the winners.',
+      ],
+      gallery: [
+        {
+          src: '/projects/review-microsite-landing.webp',
+          alt: 'Bengali campaign landing page with laptops and the three steps to enter',
+          caption: 'Landing page (Bengali version) with the three steps to enter.',
+        },
+        {
+          src: '/projects/review-microsite-admin-dashboard.webp',
+          alt: 'Admin dashboard table of submitted reviews with personal details blurred',
+          caption: 'Admin dashboard. Entrants’ personal details are blurred.',
+        },
+        {
+          src: '/projects/review-microsite-admin-editor.webp',
+          alt: 'Admin content editor with fields for cover text, steps, reward and terms',
+          caption: 'Content editor: the client changed every piece of landing-page copy without a developer.',
+        },
       ],
     },
   },
