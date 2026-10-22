@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Navbar from '@/layout/Navbar'
 import Footer from '@/layout/Footer'  
 import Home from '@/pages/Home/Home'
 import AllProjectsPage from '@/pages/Projects/AllProjects'
