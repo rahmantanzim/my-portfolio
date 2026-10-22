@@ -9,7 +9,6 @@ import {
 import { Button } from "@/components/Button";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { ValidateMessage } from "@/utils/ValidateMessage";
 import { contactInfo } from "@/data/contact";
 
 const Contact = () => {
@@ -28,18 +27,6 @@ const Contact = () => {
     setIsLoading(true);
     setSubmitStatus({ type: null, message: "" });
     try {
-      const aiResult = await ValidateMessage(formData.message);
-
-      // LOGIC: Only block if we are SURE it is gibberish
-      if (aiResult.label !== 'clean' && aiResult.score > 0.75) {
-        setSubmitStatus({
-          type: "error",
-          message: "Oops! That's gibberish. Could you please write something meaningful?",
-        });
-        setIsLoading(false);
-        return; // <--- CRITICAL: This stops the EmailJS part from running!
-      }
-      // -------------------------------
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -63,7 +50,6 @@ const Contact = () => {
 
     }
     catch (err) {
-      console.log(err);
       setSubmitStatus({
         type: "error",
         message: "Message failed to send",

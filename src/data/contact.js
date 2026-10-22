@@ -11,8 +11,8 @@ export const socialLinks = [
     {
       icon: Mail,
       label: "Email",
-      value: "hello@tanzim-rahman.com",
-      href: "mailto:tanzim008@gmail.com",
+      value: "tanzimr@mun.ca",
+      href: "mailto:tanzimr@mun.ca",
     },
     {
       icon: Phone,
