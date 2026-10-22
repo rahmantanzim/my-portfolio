@@ -51,7 +51,7 @@ export default function ProjectDetailPage() {
 
       {project.image && (
         <div className="mt-10 overflow-hidden rounded-2xl border border-border">
-          <ProjectImage project={project} priority className="aspect-[16/10] w-full" />
+          <ProjectImage project={project} priority className="h-auto w-full" />
         </div>
       )}
 
@@ -81,6 +81,26 @@ export default function ProjectDetailPage() {
                   <li key={o}>{o}</li>
                 ))}
               </ul>
+            </section>
+          )}
+          {cs.gallery && cs.gallery.length > 0 && (
+            <section aria-labelledby="screenshots">
+              <h2 id="screenshots">Screenshots</h2>
+              <div className="mt-4 space-y-8">
+                {cs.gallery.map((img) => (
+                  <figure key={img.src}>
+                    <a
+                      href={img.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block overflow-hidden rounded-xl border border-border transition-colors hover:border-primary/40"
+                    >
+                      <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="w-full" />
+                    </a>
+                    <figcaption className="mt-2 text-sm text-muted-foreground">{img.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </section>
           )}
         </div>

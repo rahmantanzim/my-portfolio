@@ -18,6 +18,10 @@ export interface ProjectLinks {
   github: string | null
 }
 
+export interface GalleryImage extends ProjectImage {
+  caption: string
+}
+
 export interface CaseStudy {
   /** One-paragraph description of the problem and what was built. */
   overview: string
@@ -27,6 +31,8 @@ export interface CaseStudy {
   highlights: string[]
   /** Measurable results, if any. */
   outcomes?: string[]
+  /** Extra screenshots shown on the case-study page. */
+  gallery?: GalleryImage[]
 }
 
 export interface Project {
