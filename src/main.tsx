@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from '@/app/App'
-import '@fontsource-variable/roboto-mono'
-import '@fontsource/playfair-display/latin-400-italic.css'
+import '@fontsource-variable/inter'
+import '@fontsource-variable/jetbrains-mono'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(

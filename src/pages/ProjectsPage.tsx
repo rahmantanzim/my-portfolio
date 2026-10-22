@@ -26,8 +26,8 @@ export default function ProjectsPage() {
         </Link>
 
         <header className="mt-6 mb-10">
-          <h1 className="text-4xl font-bold text-primary md:text-5xl">
-            All <span className="font-serif font-normal text-foreground italic">projects</span>
+          <h1 className="text-4xl font-semibold tracking-tight text-primary md:text-5xl">
+            All <span className="font-normal text-foreground">projects</span>
           </h1>
           <p className="mt-3 text-muted-foreground">
             Everything I’ve built, from client sites to university research. Projects marked “Case study” have a full

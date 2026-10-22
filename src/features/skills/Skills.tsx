@@ -8,7 +8,7 @@ export function Skills() {
     <section id="skills" tabIndex={-1} aria-labelledby="skills-title" className="section">
       <div aria-hidden className="ambient bottom-0 -left-40" />
       <div className="container-page">
-        <SectionHeader id="skills-title" eyebrow="Toolkit" title="Skills I" accent="build with" />
+        <SectionHeader id="skills-title" eyebrow="Toolkit" title="Skills &amp;" accent="tools" />
 
         <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, i) => (

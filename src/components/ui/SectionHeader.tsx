@@ -18,12 +18,12 @@ export function SectionHeader({ eyebrow, title, accent, description, id, align =
   return (
     <header className={cn('mb-12 max-w-3xl md:mb-16', align === 'center' && 'mx-auto text-center', className)}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 id={id} className="mt-4 text-3xl leading-tight font-bold text-balance text-primary md:text-5xl">
+      <h2 id={id} className="mt-4 text-3xl leading-tight font-semibold tracking-tight text-balance text-primary md:text-5xl">
         {title}
         {accent && (
           <>
             {' '}
-            <span className="font-serif font-normal text-foreground italic">{accent}</span>
+            <span className="font-normal text-foreground">{accent}</span>
           </>
         )}
       </h2>
