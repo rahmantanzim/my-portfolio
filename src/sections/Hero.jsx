@@ -57,7 +57,7 @@ const Hero = () => {
               {/* <Button size="lg"> <a href='#contact'>Contact</a></Button> */}
               <AnimatedBorderButton>
                 <Download className="w-5 h-5" />
-                <a target='_blank' href='./TanzimRahman.pdf'>Download CV</a>
+                <a target='_blank' href='./Tanzim_Rahman_Resume.pdf'>Download CV</a>
               </AnimatedBorderButton>
             </div>
             {/* Social Links */}
