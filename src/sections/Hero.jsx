@@ -5,7 +5,7 @@ import {skills} from '@/data/skills';
 import { socialLinks } from '@/data/contact';
 const Hero = () => {
   return (
-    <section className='min-h-screen flex items-center justify-center ohverflow-hidden'>
+    <section className='min-h-screen flex items-center justify-center overflow-hidden'>
       <div className="absolute inset-0">
         {/* Inset-0 means top: 0, right: 0, bottom: 0, left: 0, which makes the element fill the entire viewport. This is often used for background images or overlays to ensure they cover the whole screen."> */}
 
@@ -63,7 +63,7 @@ const Hero = () => {
             {/* Social Links */}
             <div className='flex gap-4'>
               {socialLinks.map((social, index) => {
-                return (<a className='glass text-2xl p-2 bg-primary/10 hover:bg-primary text-priamry' href={social.link} key={index} target="_blank"> {<social.social />}</a>)
+                return (<a className='glass text-2xl p-2 bg-primary/10 hover:bg-primary text-primary' href={social.link} key={index} target="_blank"> {<social.social />}</a>)
               })}
             </div>
           </div>

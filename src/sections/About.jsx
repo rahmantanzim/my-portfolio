@@ -31,8 +31,8 @@ const About = () => {
         <div className='grid lg:grid-cols-2 gap-16 items-center'>
           {/* left col  */}
           <div className='space-y-8'>
-            <div className='animaet-fade-in'>
-              <span className='color-secondary-foreground text-sm font-medium tracking-wider uppercase'>About me</span>
+            <div className='animate-fade-in'>
+              <span className='text-secondary-foreground text-sm font-medium tracking-wider uppercase'>About me</span>
             </div>
             <h2 className='text-4xl md:text-5xl font-bold leading-tight animate-fade-in text-primary animation-delay-100'>Solving complex problems <span className='font-serif italic font-normal text-white'>One component at a time</span></h2>
 

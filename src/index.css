@@ -3,10 +3,6 @@
 html {
   scroll-behavior: smooth;
 }
- *:focus, *:active {
-  color: #ffffff !important;
-  opacity: 1 !important; /* যদি আগে থেকে opacity কমানো থাকে সেটি ঠিক করবে */
-}
 
 @theme {
   --color-background: #0f1418;
@@ -51,7 +47,7 @@ html {
   }
 
   .glow-border {
-    text-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 }
 
@@ -135,13 +131,7 @@ html {
     animation: fade-in 0.8s ease-out both;
   }
 
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
 
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
  
 
   .animation-delay-100 {
