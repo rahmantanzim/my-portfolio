@@ -15,6 +15,10 @@ React Router v7 (declarative `<Routes>`) + TanStack Query. Deployed on Vercel fr
 - **Content** lives in `src/config/site.ts` (personal details) and `src/data/*` (projects,
   experience, skills), typed by `src/types/content.ts`. Never hard-code personal details in components.
 - **No secrets in `VITE_*` env vars** — they ship to the browser.
+- **Visual identity (keep it):** dark background, teal `primary`, Roboto Mono throughout, Playfair Display
+  italic for the second half of section titles (`SectionHeader accent`), frosted `.glass` panels with
+  `.card-hover` glow, `.ambient` background light per section, drifting particles + grid horizon in the hero,
+  `Button variant="animated"` for the racing-border outline button. Clean ≠ plain — don't strip these.
 - **Styling:** use theme tokens (`bg-card`, `text-muted-foreground`, `border-border`, `text-primary`…),
   not raw hex values. Use `cn()` from `src/lib/utils.ts` to merge classes.
 - **Reuse UI:** `Button` (handles button / internal link / external link), `SectionHeader`, `Tag`/`TagList`,

@@ -14,11 +14,13 @@ export function FeaturedProjects() {
 
   return (
     <section id="projects" tabIndex={-1} aria-labelledby="projects-title" className="section">
+      <div aria-hidden className="ambient top-1/4 -right-40" />
       <div className="container-page">
         <SectionHeader
           id="projects-title"
-          eyebrow="Selected work"
-          title="Projects"
+          eyebrow="Featured work"
+          title="Projects that"
+          accent="make an impact"
           description="Full-stack apps, university research projects and client work."
         />
 
@@ -35,7 +37,7 @@ export function FeaturedProjects() {
         )}
 
         <div className="mt-10 flex justify-center">
-          <Button href="/projects" variant="secondary">
+          <Button href="/projects" variant="animated" size="lg">
             See all {projects.length} projects
             <ArrowRight className="size-4" aria-hidden />
           </Button>

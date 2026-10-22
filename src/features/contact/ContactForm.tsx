@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { MESSAGE_MAX, useContactForm } from './useContactForm'
 
 const inputClass =
-  'w-full rounded-xl border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground/60 ' +
+  'w-full rounded-xl border bg-surface/70 px-4 py-3 text-foreground placeholder:text-muted-foreground/60 ' +
   'transition-colors outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30'
 
 export function ContactForm() {

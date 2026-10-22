@@ -44,13 +44,13 @@ export function Navbar() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300',
-        isScrolled || isOpen ? 'border-b border-border bg-background/85 backdrop-blur-md' : 'border-b border-transparent',
+        isScrolled || isOpen ? 'glass-strong border-x-0 border-t-0' : 'border-b border-transparent',
       )}
     >
-      <nav aria-label="Main" className="container-page flex h-16 items-center justify-between">
+      <nav aria-label="Main" className="container-page flex h-18 items-center justify-between">
         <Link
           to="/"
-          className="font-mono text-lg font-semibold tracking-tight transition-colors hover:text-primary"
+          className="text-xl font-bold tracking-tight transition-colors hover:text-primary"
           aria-label={`${site.name} — home`}
         >
           {site.shortName}
@@ -58,7 +58,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="glass hidden items-center gap-1 rounded-full px-2 py-1 md:flex">
           {navLinks.map((link) => {
             const current = isActive(link.id) || (link.id === 'projects' && isProjectsRoute)
             return (
@@ -67,8 +67,8 @@ export function Navbar() {
                   to={{ pathname: '/', hash: link.id }}
                   aria-current={current ? 'true' : undefined}
                   className={cn(
-                    'rounded-full px-3.5 py-2 text-sm transition-colors',
-                    current ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
+                    'rounded-full px-4 py-2 text-sm transition-colors',
+                    current ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-surface hover:text-foreground',
                   )}
                 >
                   {link.label}
@@ -79,9 +79,8 @@ export function Navbar() {
         </ul>
 
         <div className="hidden md:block">
-          <Button href={site.resumeUrl} variant="secondary" size="sm">
-            <FileText className="size-4" aria-hidden />
-            Résumé
+          <Button href="/#contact" size="sm">
+            Contact me
           </Button>
         </div>
 

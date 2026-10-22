@@ -8,10 +8,10 @@ export function ProjectListItem({ project }: { project: Project }) {
   const hasPage = Boolean(project.caseStudy)
 
   return (
-    <article className="group relative py-6">
+    <article className="glass card-hover group relative rounded-2xl p-6">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h2 className="text-lg font-medium tracking-tight">
+          <h2 className="text-lg font-semibold">
             {hasPage ? (
               <Link to={`/projects/${project.slug}`} className="stretched-link transition-colors group-hover:text-primary">
                 {project.title}
@@ -20,9 +20,9 @@ export function ProjectListItem({ project }: { project: Project }) {
               project.title
             )}
           </h2>
-          <p className="mt-0.5 font-mono text-xs text-muted-foreground">
+          <p className="mt-1 text-xs text-muted-foreground">
             {project.context ?? categoryLabel(project.category)}
-            {hasPage && <span className="text-primary"> · Case study</span>}
+            {hasPage && <span className="ml-2 rounded-full bg-primary/15 px-2 py-0.5 text-primary">Case study</span>}
           </p>
         </div>
         <ProjectLinks project={project} className="-mr-2 shrink-0" />
