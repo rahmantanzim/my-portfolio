@@ -17,9 +17,9 @@ export const site = {
   resumeUrl: '/Tanzim_Rahman_Resume.pdf',
 
   availability: {
-    headline: 'Open to Winter 2027 internships and full-time roles from May 2027',
+    headline: 'Open to full-time roles',
     details: [
-      'Canadian Permanent Resident — no sponsorship needed',
+      'Canadian Permanent Resident',
       "Based in St. John's, NL · open to remote or relocating to Toronto, Calgary or Vancouver",
     ],
   },

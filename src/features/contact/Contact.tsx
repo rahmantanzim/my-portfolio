@@ -1,7 +1,6 @@
 import { CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
 import { Reveal } from '@/components/ui/Reveal'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { SocialLinks } from '@/components/ui/SocialLinks'
 import { site } from '@/config/site'
 import { ContactForm } from './ContactForm'
 
@@ -21,7 +20,7 @@ export function Contact() {
           eyebrow="Get in touch"
           title="Let’s build"
           accent="something great."
-          description="Hiring for an internship or a full-time role, or have a project in mind? I usually reply within a day."
+          description="Hiring for a full-time role, or have a project in mind? I usually reply within a day."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_24rem] lg:gap-12">
@@ -76,7 +75,6 @@ export function Contact() {
               })}
             </ul>
 
-            <SocialLinks className="-ml-1" />
           </Reveal>
         </div>
       </div>
