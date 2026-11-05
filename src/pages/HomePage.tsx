@@ -5,7 +5,6 @@ import { Contact } from '@/features/contact/Contact'
 import { Experience } from '@/features/experience/Experience'
 import { Hero } from '@/features/hero/Hero'
 import { FeaturedProjects } from '@/features/projects/FeaturedProjects'
-import { Skills } from '@/features/skills/Skills'
 import { Testimonials } from '@/features/testimonials/Testimonials'
 
 export function HomePage() {
@@ -16,9 +15,8 @@ export function HomePage() {
       <title>{`${site.name} — ${site.role}`}</title>
       <Hero />
       {sections.about && <About />}
-      <FeaturedProjects />
       <Experience />
-      <Skills />
+      <FeaturedProjects />
       {sections.certifications && <Certifications />}
       {sections.testimonials && <Testimonials />}
       <Contact />

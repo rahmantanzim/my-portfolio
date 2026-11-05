@@ -70,6 +70,18 @@ export const education: Education[] = [
   },
 ]
 
+/** Short list shown in the About section; the full list is on the résumé. */
+export const coreSkills = [
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Node.js & Express',
+  'Python',
+  'PostgreSQL',
+  'Tailwind CSS',
+  'Vitest & Pytest',
+]
+
 export const skillGroups: SkillGroup[] = [
   { label: 'Languages', skills: ['TypeScript', 'JavaScript', 'Python', 'PHP', 'SQL', 'Java', 'HTML', 'CSS'] },
   { label: 'Frontend', skills: ['React', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'jQuery'] },
