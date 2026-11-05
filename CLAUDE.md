@@ -15,11 +15,13 @@ React Router v7 (declarative `<Routes>`) + TanStack Query. Deployed on Vercel fr
 - **Content** lives in `src/config/site.ts` (personal details) and `src/data/*` (projects,
   experience, skills), typed by `src/types/content.ts`. Never hard-code personal details in components.
 - **No secrets in `VITE_*` env vars** — they ship to the browser.
-- **Visual identity (keep it):** dark background, teal `primary`, Inter for text with JetBrains Mono for small
-  labels, two-tone section titles (`SectionHeader accent`), frosted `.glass` panels with `.card-hover` glow,
-  `.ambient` background light per section, drifting particles + grid horizon in the hero, round portrait with a
-  teal halo (no box), `Button variant="animated"` for the racing-border outline button. Clean ≠ plain — don't
-  strip these.
+- **Visual identity (keep it):** classic single-column portfolio. Dark background, teal `primary`, Inter for
+  text and JetBrains Mono for labels, nav and tech lists. Numbered sections (`NumberedHeading`: "01. About me ───"),
+  fixed side rails (socials left, email right) on desktop, navbar that hides on scroll down, outlined mono
+  buttons (`.btn-outline`), `▹` lists (`.tri-list`), teal-tinted images that return to colour on hover
+  (`.tint-frame`), offset-outline portrait (`.portrait-offset`), featured projects with the description panel
+  overlapping the screenshot. Content sits in `.content-column` (max 1000px). Keep the copy in Tanzim's own
+  words; this layout is inspired by Brittany Chiang's v4 site, so never copy its text, colours or logo.
 - **Styling:** use theme tokens (`bg-card`, `text-muted-foreground`, `border-border`, `text-primary`…),
   not raw hex values. Use `cn()` from `src/lib/utils.ts` to merge classes.
 - **Reuse UI:** `Button` (handles button / internal link / external link), `SectionHeader`, `Tag`/`TagList`,
