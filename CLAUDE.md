@@ -15,11 +15,13 @@ React Router v7 (declarative `<Routes>`) + TanStack Query. Deployed on Vercel fr
 - **Content** lives in `src/config/site.ts` (personal details) and `src/data/*` (projects,
   experience, skills), typed by `src/types/content.ts`. Never hard-code personal details in components.
 - **No secrets in `VITE_*` env vars** — they ship to the browser.
-- **Visual identity (keep it):** dark background, teal `primary`, Inter for text with JetBrains Mono for small
-  labels, two-tone section titles (`SectionHeader accent`), frosted `.glass` panels with `.card-hover` glow,
-  `.ambient` background light per section, drifting particles + grid horizon in the hero, round portrait with a
-  teal halo (no box), `Button variant="animated"` for the racing-border outline button. Clean ≠ plain — don't
-  strip these.
+- **Visual identity ("Fog & ink", keep it):** light, typographic, document-like. Fog-white paper, near-black
+  ink, one signal red (Jellybean Row) as the only accent; house colours (mustard, harbour, moss, berry) only as
+  small project swatches. Archivo throughout: name and big headings at `.display` (62% width, heavy), entry titles
+  `.semi-condensed`; IBM Plex Mono only for the swipe readout. One column (`.sheet`), each section's name in the
+  left margin (`MarginSection`), dates right-aligned in tabular figures, hairlines between entries, links
+  underlined (`.ink-link`). No cards, shadows, gradients, glows, pills or rounded corners. The hero's one
+  interactive moment is `SwipeGate`; don't add other decorative motion.
 - **Styling:** use theme tokens (`bg-card`, `text-muted-foreground`, `border-border`, `text-primary`…),
   not raw hex values. Use `cn()` from `src/lib/utils.ts` to merge classes.
 - **Reuse UI:** `Button` (handles button / internal link / external link), `SectionHeader`, `Tag`/`TagList`,
