@@ -6,13 +6,13 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'animated'
 type Size = 'sm' | 'md' | 'lg'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors duration-200 ' +
+  'inline-flex items-center justify-center gap-2 font-medium transition-colors duration-150 ' +
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ' +
   'disabled:pointer-events-none disabled:opacity-60 cursor-pointer'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary-hover hover:shadow-primary/40',
-  secondary: 'border border-border-strong text-foreground hover:border-primary hover:text-primary',
+  primary: 'bg-foreground text-background hover:bg-primary',
+  secondary: 'border border-foreground text-foreground hover:bg-foreground hover:text-background',
   ghost: 'text-muted-foreground hover:text-foreground hover:bg-surface',
   // Outline with a teal stroke that races around the border on hover.
   animated: 'animated-border relative border border-border-strong text-foreground hover:border-transparent',
