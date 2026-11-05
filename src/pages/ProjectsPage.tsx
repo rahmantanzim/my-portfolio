@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { site } from '@/config/site'
 import { ProjectFilters } from '@/features/projects/ProjectFilters'
-import { ProjectListItem } from '@/features/projects/ProjectListItem'
+import { ArchiveTable } from '@/features/projects/ArchiveTable'
 import { useProjectFilters } from '@/features/projects/useProjectFilters'
 import { projectsQuery } from '@/services/content'
 
@@ -13,8 +13,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="relative isolate overflow-x-clip">
-      <div aria-hidden className="ambient -top-40 left-1/3" />
-      <div className="container-page max-w-4xl pt-28 pb-24 md:pt-36">
+      <div className="content-column pt-32 pb-24 md:pt-40">
         <title>{`Projects — ${site.name}`}</title>
 
         <Link
@@ -50,7 +49,7 @@ export default function ProjectsPage() {
         {isError && <p className="mt-6 text-muted-foreground">Projects couldn’t be loaded right now.</p>}
 
         {!isPending && !isError && filtered.length === 0 && (
-          <div className="mt-6 rounded-2xl border border-dashed border-border p-8 text-center">
+          <div className="mt-6 rounded border border-dashed border-border p-8 text-center">
             <p className="text-muted-foreground">No projects match these filters.</p>
             <button type="button" onClick={reset} className="mt-3 cursor-pointer text-sm text-primary hover:underline">
               Clear filters
@@ -58,13 +57,11 @@ export default function ProjectsPage() {
           </div>
         )}
 
-        <ul className="mt-4 space-y-4">
-          {filtered.map((project) => (
-            <li key={project.slug}>
-              <ProjectListItem project={project} />
-            </li>
-          ))}
-        </ul>
+        {filtered.length > 0 && (
+          <div className="mt-4">
+            <ArchiveTable projects={filtered} />
+          </div>
+        )}
       </div>
     </div>
   )
