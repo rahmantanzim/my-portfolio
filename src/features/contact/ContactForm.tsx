@@ -5,14 +5,14 @@ import { cn } from '@/lib/utils'
 import { MESSAGE_MAX, useContactForm } from './useContactForm'
 
 const inputClass =
-  'w-full rounded-xl border bg-surface/70 px-4 py-3 text-foreground placeholder:text-muted-foreground/60 ' +
+  'w-full border bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground/70 ' +
   'transition-colors outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30'
 
 export function ContactForm() {
   const { values, errors, status, onChange, onSubmit, honeypot, setHoneypot } = useContactForm()
   const sending = status === 'sending'
 
-  const fieldClass = (hasError: boolean) => cn(inputClass, hasError ? 'border-danger' : 'border-border')
+  const fieldClass = (hasError: boolean) => cn(inputClass, hasError ? 'border-danger' : 'border-border-strong')
 
   return (
     <form noValidate onSubmit={onSubmit} className="space-y-5" aria-describedby="form-status">
@@ -114,13 +114,13 @@ export function ContactForm() {
 
       <div id="form-status" role="status" aria-live="polite">
         {status === 'success' && (
-          <p className="flex items-start gap-3 rounded-xl border border-success/30 bg-success/10 p-4 text-sm text-success">
+          <p className="flex items-start gap-3 border border-success/40 bg-success/5 p-4 text-sm text-success">
             <CheckCircle2 className="mt-0.5 size-4 shrink-0" aria-hidden />
             Thanks — your message is on its way. I’ll get back to you soon.
           </p>
         )}
         {status === 'error' && (
-          <p className="flex items-start gap-3 rounded-xl border border-danger/30 bg-danger/10 p-4 text-sm text-danger">
+          <p className="flex items-start gap-3 border border-danger/40 bg-danger/5 p-4 text-sm text-danger">
             <AlertCircle className="mt-0.5 size-4 shrink-0" aria-hidden />
             <span>
               Sorry, the message couldn’t be sent. Please try again, or email me directly at{' '}

@@ -1,27 +1,27 @@
 import { site } from '@/config/site'
-import { About } from '@/features/about/About'
 import { Certifications } from '@/features/certifications/Certifications'
 import { Contact } from '@/features/contact/Contact'
 import { Experience } from '@/features/experience/Experience'
 import { Hero } from '@/features/hero/Hero'
-import { FeaturedProjects } from '@/features/projects/FeaturedProjects'
-import { Skills } from '@/features/skills/Skills'
+import { Now } from '@/features/now/Now'
+import { Stack } from '@/features/stack/Stack'
 import { Testimonials } from '@/features/testimonials/Testimonials'
+import { Work } from '@/features/work/Work'
 
 export function HomePage() {
   const { sections } = site
 
   return (
-    <>
+    <div className="sheet">
       <title>{`${site.name} — ${site.role}`}</title>
       <Hero />
-      {sections.about && <About />}
-      <FeaturedProjects />
+      <Now />
+      <Work />
       <Experience />
-      <Skills />
+      <Stack />
       {sections.certifications && <Certifications />}
       {sections.testimonials && <Testimonials />}
       <Contact />
-    </>
+    </div>
   )
 }
