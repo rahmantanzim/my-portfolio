@@ -31,7 +31,7 @@ export function ProjectLinks({ project, variant = 'icon', className }: ProjectLi
             rel="noopener noreferrer"
             aria-label={`${project.title} — ${item.label}`}
             title={item.label}
-            className="flex size-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
+            className="flex size-9 items-center justify-center  text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
           >
             {item.icon}
           </a>
@@ -41,7 +41,7 @@ export function ProjectLinks({ project, variant = 'icon', className }: ProjectLi
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-border-strong px-4 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+            className="inline-flex h-10 items-center gap-2  border border-foreground px-4 text-sm font-medium transition-colors hover:bg-foreground hover:text-background"
           >
             {item.icon}
             {item.label}

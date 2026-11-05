@@ -16,7 +16,7 @@ export default function ProjectDetailPage() {
   if (isPending) return <div className="min-h-dvh" aria-busy="true" />
   if (isError)
     return (
-      <div className="container-page pt-32 pb-24">
+      <div className="sheet pt-14 pb-24">
         <p className="text-muted-foreground">This project couldn’t be loaded right now.</p>
       </div>
     )
@@ -29,9 +29,8 @@ export default function ProjectDetailPage() {
   const next = withPages.length > 1 ? withPages[(idx + 1) % withPages.length] : null
 
   return (
-    <div className="relative isolate overflow-x-clip">
-      <div aria-hidden className="ambient -top-40 left-1/4" />
-      <article className="container-page max-w-3xl pt-28 pb-24 md:pt-36">
+    <div>
+      <article className="sheet max-w-[46rem] pt-8 pb-24 md:pt-14">
         <title>{`${project.title} — ${site.name}`}</title>
         <meta name="description" content={project.summary} />
 
@@ -44,15 +43,15 @@ export default function ProjectDetailPage() {
         </Link>
 
         <header className="mt-6">
-          {project.context && <p className="text-sm text-primary">{project.context}</p>}
-          <h1 className="mt-2 text-3xl font-bold text-balance md:text-5xl">{project.title}</h1>
+          {project.context && <p className="text-[0.9375rem] font-semibold text-primary">{project.context}</p>}
+          <h1 className="display mt-3 text-[clamp(3rem,9vw,5.5rem)] text-balance">{project.title}</h1>
           <p className="mt-4 text-lg text-pretty text-muted-foreground">{project.summary}</p>
           <TagList tags={project.tags} className="mt-5" />
           <ProjectLinks project={project} variant="button" className="mt-6 gap-3" />
         </header>
 
         {project.image && (
-          <div className="glass glow-border mt-10 overflow-hidden rounded-2xl p-1.5">
+          <div className="mt-10 border border-foreground">
             <ProjectImage project={project} priority className="h-auto w-full" />
           </div>
         )}
@@ -95,7 +94,7 @@ export default function ProjectDetailPage() {
                         href={img.src}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block overflow-hidden rounded-xl border border-border transition-colors hover:border-primary/40"
+                        className="block border border-border transition-colors hover:border-foreground"
                       >
                         <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="w-full" />
                       </a>

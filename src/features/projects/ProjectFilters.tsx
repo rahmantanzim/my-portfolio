@@ -14,20 +14,24 @@ interface ProjectFiltersProps {
 /** Show the most-used technologies first; the rest sit behind "Show more". */
 const VISIBLE_TECH = 10
 
-const chip =
-  'cursor-pointer rounded-full border px-3 py-1 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-primary'
+const chip = 'cursor-pointer text-[0.9375rem] transition-colors'
 
-export function ProjectFilters({ category, onCategoryChange, techOptions, activeTech, onTechChange }: ProjectFiltersProps) {
+export function ProjectFilters({
+  category,
+  onCategoryChange,
+  techOptions,
+  activeTech,
+  onTechChange,
+}: ProjectFiltersProps) {
   const [showAll, setShowAll] = useState(false)
   const hidden = techOptions.length - VISIBLE_TECH
   const visibleTech =
-    showAll || hidden <= 0
-      ? techOptions
-      : techOptions.filter((t, i) => i < VISIBLE_TECH || t === activeTech) // keep the active one visible
+    showAll || hidden <= 0 ? techOptions : techOptions.filter((t, i) => i < VISIBLE_TECH || t === activeTech) // keep the active one visible
 
   return (
     <div className="space-y-5">
-      <div role="group" aria-label="Filter by type" className="flex flex-wrap gap-x-6 gap-y-2 border-b border-border">
+      <div role="group" aria-label="Filter by type" className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+        <span className="w-20 text-sm text-muted-foreground">Type</span>
         {PROJECT_CATEGORIES.map((c) => {
           const active = category === c.id
           return (
@@ -37,10 +41,8 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
               aria-pressed={active}
               onClick={() => onCategoryChange(c.id)}
               className={cn(
-                '-mb-px cursor-pointer border-b-2 pb-3 text-sm transition-colors',
-                active
-                  ? 'border-primary font-medium text-foreground'
-                  : 'border-transparent text-muted-foreground hover:text-foreground',
+                'cursor-pointer text-[0.9375rem] underline-offset-[0.2em] transition-colors',
+                active ? 'font-semibold text-primary underline decoration-2' : 'text-foreground hover:text-primary',
               )}
             >
               {c.label}
@@ -49,7 +51,8 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
         })}
       </div>
 
-      <div role="group" aria-label="Filter by technology" className="flex flex-wrap items-center gap-2">
+      <div role="group" aria-label="Filter by technology" className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
+        <span className="w-20 text-sm text-muted-foreground">Tech</span>
         <button
           type="button"
           aria-pressed={activeTech === null}
@@ -57,11 +60,11 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
           className={cn(
             chip,
             activeTech === null
-              ? 'border-primary bg-primary/10 text-foreground'
-              : 'border-border text-muted-foreground hover:text-foreground',
+              ? 'font-semibold text-primary underline decoration-2 underline-offset-[0.2em]'
+              : 'text-foreground hover:text-primary',
           )}
         >
-          Any tech
+          Any
         </button>
         {visibleTech.map((t) => {
           const active = activeTech === t
@@ -74,8 +77,8 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
               className={cn(
                 chip,
                 active
-                  ? 'border-primary bg-primary/10 text-foreground'
-                  : 'border-border text-muted-foreground hover:text-foreground',
+                  ? 'font-semibold text-primary underline decoration-2 underline-offset-[0.2em]'
+                  : 'text-foreground hover:text-primary',
               )}
             >
               {t}
@@ -87,7 +90,7 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
             type="button"
             aria-expanded={showAll}
             onClick={() => setShowAll((v) => !v)}
-            className="cursor-pointer px-2 py-1 text-xs text-primary hover:underline"
+            className="ink-link cursor-pointer text-[0.9375rem] text-muted-foreground"
           >
             {showAll ? 'Show fewer' : `+${hidden} more`}
           </button>
