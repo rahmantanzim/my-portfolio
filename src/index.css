@@ -19,6 +19,8 @@
   --color-muted-foreground: #8a949f;
   --color-border: #242b32;
   --color-border-strong: #34404a;
+  /* Hairline used by the editorial (Swiss-style) sections */
+  --color-rule: #2d2d2d;
 
   --color-success: #4ade80;
   --color-danger: #f87171;
@@ -146,6 +148,115 @@
     background: color-mix(in srgb, var(--color-primary) 7%, transparent);
     pointer-events: none;
     z-index: -1;
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Editorial sections (projects index, skills table)                 */
+  /* No cards, no radius, no shadows: structure comes from 1px rules.  */
+  /* ---------------------------------------------------------------- */
+
+  /* A row separated by a hairline. On hover/focus a 2px teal line wipes in over it. */
+  .editorial-row {
+    position: relative;
+    border-top: 1px solid var(--color-rule);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -1px 0 auto;
+      height: 2px;
+      background: var(--color-primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    &:hover::before,
+    &:focus-within::before {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Title nudges right when its row is active */
+  .editorial-title {
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      color 0.3s;
+  }
+  .editorial-row:hover .editorial-title,
+  .editorial-row:focus-within .editorial-title {
+    transform: translateX(0.5rem);
+    color: var(--color-primary);
+  }
+
+  /* Screenshot that opens under the row on hover. Always open on touch screens. */
+  .media-reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    & > div {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    & img,
+    & .project-placeholder {
+      transform: scale(1.04);
+      opacity: 0;
+      transition:
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+        opacity 0.5s;
+    }
+  }
+  .editorial-row:hover .media-reveal,
+  .editorial-row:focus-within .media-reveal {
+    grid-template-rows: 1fr;
+
+    & img,
+    & .project-placeholder {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @media (hover: none), (max-width: 1023px) {
+    .media-reveal {
+      grid-template-rows: 1fr;
+
+      & img,
+      & .project-placeholder {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+
+  /* Raw-text list with a small square marker */
+  .square-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+
+    &::before {
+      content: '';
+      flex: none;
+      width: 0.3125rem;
+      height: 0.3125rem;
+      transform: translateY(-0.15em);
+      background: var(--color-primary);
+    }
+  }
+
+  /* Thin rules between cells, drawn by a 1px gap over a rule-coloured background */
+  .rule-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--color-rule);
+    border-block: 1px solid var(--color-rule);
+
+    & > * {
+      background: var(--color-background);
+    }
   }
 
   /* Thin teal-to-transparent ring around the hero portrait */
