@@ -15,7 +15,7 @@ interface ProjectFiltersProps {
 const VISIBLE_TECH = 10
 
 const chip =
-  'cursor-pointer rounded-full border px-3 py-1 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-primary'
+  'cursor-pointer border px-2.5 py-1 font-mono text-xs transition-colors focus-visible:outline-2 focus-visible:outline-primary'
 
 export function ProjectFilters({ category, onCategoryChange, techOptions, activeTech, onTechChange }: ProjectFiltersProps) {
   const [showAll, setShowAll] = useState(false)
@@ -57,8 +57,8 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
           className={cn(
             chip,
             activeTech === null
-              ? 'border-primary bg-primary/10 text-foreground'
-              : 'border-border text-muted-foreground hover:text-foreground',
+              ? 'border-primary text-primary'
+              : 'border-rule text-muted-foreground hover:border-foreground/40 hover:text-foreground',
           )}
         >
           Any tech
@@ -74,8 +74,8 @@ export function ProjectFilters({ category, onCategoryChange, techOptions, active
               className={cn(
                 chip,
                 active
-                  ? 'border-primary bg-primary/10 text-foreground'
-                  : 'border-border text-muted-foreground hover:text-foreground',
+                  ? 'border-primary text-primary'
+                  : 'border-rule text-muted-foreground hover:border-foreground/40 hover:text-foreground',
               )}
             >
               {t}
