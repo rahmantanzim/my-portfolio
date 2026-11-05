@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
+import { SideRails } from '@/components/layout/SideRails'
 import { useScrollManagement } from '@/hooks/useScrollManagement'
 
 export function RootLayout() {
@@ -13,6 +14,7 @@ export function RootLayout() {
         Skip to content
       </a>
       <Navbar />
+      <SideRails />
       <main id="main" tabIndex={-1} className="flex-1 outline-none">
         <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
           <Outlet />

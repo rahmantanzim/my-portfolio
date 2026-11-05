@@ -3,13 +3,17 @@ import { site } from '@/config/site'
 
 export function Footer() {
   return (
-    <footer className="glass-strong border-x-0 border-b-0">
-      <div className="container-page flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
-        <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} {site.name}. Built with React, TypeScript and Tailwind CSS.
-        </p>
-        <SocialLinks />
-      </div>
+    <footer className="py-8 text-center">
+      {/* The side rails carry these links on desktop; phones get them here. */}
+      <SocialLinks className="mb-4 justify-center lg:hidden" />
+      <a
+        href="https://github.com/rahmantanzim/my-portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
+      >
+        Built by {site.name} with React and TypeScript
+      </a>
     </footer>
   )
 }

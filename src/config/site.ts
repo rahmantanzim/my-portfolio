@@ -35,15 +35,15 @@ export const site = {
    * their content is ready — flip to `true` to publish.
    */
   sections: {
-    about: false, // future
+    about: true,
     testimonials: false, // future
     certifications: false, // future
   } as Record<'about' | 'testimonials' | 'certifications', boolean>,
 } as const
 
 export const navLinks = [
-  { id: 'projects', label: 'Projects' },
+  { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Work' },
   { id: 'contact', label: 'Contact' },
 ] as const
