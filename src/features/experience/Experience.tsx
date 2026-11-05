@@ -1,128 +1,142 @@
-import { Briefcase, GraduationCap } from 'lucide-react'
+import { useId, useRef, useState, type KeyboardEvent } from 'react'
+import { NumberedHeading } from '@/components/ui/NumberedHeading'
 import { Reveal } from '@/components/ui/Reveal'
-import { SectionHeader } from '@/components/ui/SectionHeader'
-import { TagList } from '@/components/ui/Tag'
 import { devExperience, education, otherExperience } from '@/data/experience'
 import { cn, formatMonth, formatRange } from '@/lib/utils'
 
-/** Timeline entries, newest first: the current degree, then development work, then the first degree. */
-const timeline = [
-  { kind: 'education' as const, item: education[0] },
-  ...devExperience.map((item) => ({ kind: 'work' as const, item })),
-  ...education.slice(1).map((item) => ({ kind: 'education' as const, item })),
-]
-
-function TimelineDot({ current }: { current: boolean }) {
-  return (
-    <span
-      aria-hidden
-      className="absolute top-7 left-0 z-10 flex size-3 -translate-x-1/2 items-center justify-center md:left-1/2"
-    >
-      {current && <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75" />}
-      <span className="relative size-3 rounded-full bg-primary ring-4 ring-background" />
-    </span>
-  )
+interface Tab {
+  id: string
+  tab: string
+  title: string
+  at: string
+  dates: string
+  points: string[]
 }
 
+/** Development work first, then the current degree, then other jobs and the first degree. */
+const tabs: Tab[] = [
+  ...devExperience.map((j) => ({
+    id: j.id,
+    tab: j.organization,
+    title: j.role,
+    at: j.organization,
+    dates: formatRange(j.start, j.end),
+    points: [...(j.summary ? [j.summary] : []), ...j.highlights],
+  })),
+  ...education
+    .filter((e) => e.inProgress)
+    .map((e) => ({
+      id: e.id,
+      tab: 'Memorial University',
+      title: e.degree,
+      at: e.institution,
+      dates: formatRange(e.start, e.end, 'expected'),
+      points: [
+        'Full-time, finishing in April 2027.',
+        'Course projects include a swipe-based 2FA system, where I built the React dashboard and its 43 Vitest tests, and grammar-based fuzzers for HTML and JSON parsers.',
+      ],
+    })),
+  ...otherExperience.map((j) => ({
+    id: j.id,
+    tab: j.organization,
+    title: j.role,
+    at: j.organization,
+    dates: formatRange(j.start, j.end),
+    points: j.highlights,
+  })),
+  ...education
+    .filter((e) => !e.inProgress)
+    .map((e) => ({
+      id: e.id,
+      tab: 'BRAC University',
+      title: e.degree,
+      at: e.institution,
+      dates: formatMonth(e.end),
+      points: [e.location, ...(e.note ? [e.note] : [])],
+    })),
+]
+
 export function Experience() {
+  const [active, setActive] = useState(0)
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const base = useId()
+
+  // Arrow keys move between tabs (WAI-ARIA tabs pattern).
+  const onKeyDown = (e: KeyboardEvent) => {
+    const next = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key]
+    if (next === undefined && e.key !== 'Home' && e.key !== 'End') return
+    e.preventDefault()
+    const i =
+      e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : (active + (next ?? 0) + tabs.length) % tabs.length
+    setActive(i)
+    tabRefs.current[i]?.focus()
+  }
+
+  const current = tabs[active]
+
   return (
     <section id="experience" tabIndex={-1} aria-labelledby="experience-title" className="section">
-      <div aria-hidden className="ambient top-1/3 -left-40" />
-      <div className="container-page">
-        <SectionHeader
-          id="experience-title"
-          eyebrow="Career journey"
-          title="Experience &"
-          accent="education"
-          description="Development work and study, newest first."
-        />
+      <Reveal className="content-column max-w-[50rem]">
+        <NumberedHeading id="experience-title" number="02">
+          Where I’ve worked
+        </NumberedHeading>
 
-        <div className="relative">
-          <div aria-hidden className="timeline-line absolute top-0 bottom-0 left-0 w-0.5 md:left-1/2 md:-translate-x-1/2" />
-
-          <ol className="space-y-10 md:space-y-14">
-            {timeline.map((entry, i) => {
-              const right = i % 2 === 1
-              const isEducation = entry.kind === 'education'
-              const current = isEducation ? entry.item.inProgress : entry.item.end === null
-
+        <div className="flex flex-col gap-8 md:flex-row md:gap-10">
+          {/* Tab list: vertical on desktop, scrolls sideways on phones */}
+          <div
+            role="tablist"
+            aria-label="Jobs and education"
+            aria-orientation="vertical"
+            className="-mx-6 flex overflow-x-auto px-6 md:mx-0 md:flex-col md:overflow-visible md:px-0"
+          >
+            {tabs.map((t, i) => {
+              const selected = i === active
               return (
-                <li key={entry.item.id} className="relative grid md:grid-cols-2 md:gap-16">
-                  <TimelineDot current={current} />
-                  <Reveal className={cn('pl-8 md:pl-0', right ? 'md:col-start-2' : 'md:text-right')}>
-                    <article className="glass card-hover rounded-2xl p-6 text-left md:p-7">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <p className="text-sm font-medium text-primary">
-                          {isEducation
-                            ? entry.item.inProgress
-                              ? formatRange(entry.item.start, entry.item.end, 'expected')
-                              : formatMonth(entry.item.end)
-                            : formatRange(entry.item.start, entry.item.end)}
-                        </p>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-surface px-2.5 py-1 text-xs text-muted-foreground">
-                          {isEducation ? (
-                            <GraduationCap className="size-3.5" aria-hidden />
-                          ) : (
-                            <Briefcase className="size-3.5" aria-hidden />
-                          )}
-                          {isEducation ? (current ? 'Current · full-time' : 'Education') : 'Development'}
-                        </span>
-                      </div>
-
-                      {isEducation ? (
-                        <>
-                          <h3 className="mt-3 text-xl font-semibold">{entry.item.degree}</h3>
-                          <p className="mt-1 text-sm text-muted-foreground">
-                            {entry.item.institution} · {entry.item.location}
-                          </p>
-                          {entry.item.note && <p className="mt-3 text-sm text-muted-foreground">{entry.item.note}</p>}
-                        </>
-                      ) : (
-                        <>
-                          <h3 className="mt-3 text-xl font-semibold">{entry.item.role}</h3>
-                          <p className="mt-1 text-sm text-muted-foreground">
-                            {entry.item.organization} · {entry.item.location}
-                          </p>
-                          {entry.item.summary && <p className="mt-4 leading-relaxed">{entry.item.summary}</p>}
-                          <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
-                            {entry.item.highlights.map((h) => (
-                              <li
-                                key={h}
-                                className="relative pl-4 text-pretty before:absolute before:top-[0.6em] before:left-0 before:size-1.5 before:rounded-full before:bg-primary/70"
-                              >
-                                {h}
-                              </li>
-                            ))}
-                          </ul>
-                          <TagList tags={entry.item.tags} className="mt-5" />
-                        </>
-                      )}
-                    </article>
-                  </Reveal>
-                </li>
+                <button
+                  key={t.id}
+                  ref={(el) => {
+                    tabRefs.current[i] = el
+                  }}
+                  role="tab"
+                  type="button"
+                  id={`${base}-tab-${i}`}
+                  aria-selected={selected}
+                  aria-controls={`${base}-panel`}
+                  tabIndex={selected ? 0 : -1}
+                  onClick={() => setActive(i)}
+                  onKeyDown={onKeyDown}
+                  className={cn(
+                    'h-11 shrink-0 cursor-pointer border-b-2 px-5 text-left font-mono text-[0.8125rem] whitespace-nowrap transition-colors md:border-b-0 md:border-l-2',
+                    selected
+                      ? 'border-primary bg-primary/10 text-primary'
+                      : 'border-border-strong text-muted-foreground hover:bg-primary/5 hover:text-primary',
+                  )}
+                >
+                  {t.tab}
+                </button>
               )
             })}
-          </ol>
-        </div>
+          </div>
 
-        {/* Non-development roles, kept compact */}
-        <Reveal className="mt-16 md:mx-auto md:max-w-3xl">
-          <h3 className="text-center text-sm font-semibold text-primary">Other work in Canada</h3>
-          <ul className="glass mt-5 divide-y divide-border/70 rounded-2xl px-6">
-            {otherExperience.map((job) => (
-              <li key={job.id} className="py-5">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <p className="font-medium">
-                    {job.role} <span className="text-muted-foreground">· {job.organization}</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground">{formatRange(job.start, job.end)}</p>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-pretty text-muted-foreground">{job.highlights[0]}</p>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </div>
+          <div
+            role="tabpanel"
+            id={`${base}-panel`}
+            aria-labelledby={`${base}-tab-${active}`}
+            tabIndex={0}
+            className="min-h-[22rem] flex-1 outline-none"
+          >
+            <h3 className="text-xl font-medium">
+              {current.title} <span className="text-primary">@ {current.at}</span>
+            </h3>
+            <p className="mt-1.5 font-mono text-[0.8125rem] text-muted-foreground">{current.dates}</p>
+            <ul className="tri-list mt-6 space-y-3 leading-relaxed text-pretty text-muted-foreground">
+              {current.points.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Reveal>
     </section>
   )
 }
