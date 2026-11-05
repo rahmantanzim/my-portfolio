@@ -1,10 +1,9 @@
 import { ArrowRight } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
-import { Button } from '@/components/ui/Button'
-import { Reveal } from '@/components/ui/Reveal'
-import { SectionHeader } from '@/components/ui/SectionHeader'
+import { Link } from 'react-router-dom'
+import { BrutalHeader } from '@/components/ui/BrutalHeader'
 import { projectsQuery } from '@/services/content'
-import { ProjectCard } from './ProjectCard'
+import { ProjectBlock } from './ProjectBlock'
 
 const MAX_FEATURED = 4
 
@@ -13,34 +12,33 @@ export function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured).slice(0, MAX_FEATURED)
 
   return (
-    <section id="projects" tabIndex={-1} aria-labelledby="projects-title" className="section">
-      <div aria-hidden className="ambient top-1/4 -right-40" />
+    <section id="projects" tabIndex={-1} aria-labelledby="projects-title" className="brut-panel section">
       <div className="container-page">
-        <SectionHeader
+        <BrutalHeader
           id="projects-title"
-          eyebrow="Featured work"
+          label="Index / Work"
           title="Projects that"
-          accent="make an impact"
-          description="Full-stack apps, university research projects and client work."
+          highlight="make an impact"
+          aside="Full-stack apps, university research and client work. Each one links to a write-up and the code."
         />
 
         {isError ? (
-          <p className="text-muted-foreground">Projects couldn’t be loaded right now. Please try again later.</p>
+          <p className="brut-box p-6 font-mono">Projects couldn’t be loaded right now. Please try again later.</p>
         ) : (
-          <ul className="grid gap-6 md:grid-cols-2">
+          <ul className="space-y-8">
             {featured.map((project, i) => (
-              <Reveal as="li" key={project.slug} delay={(i % 2) * 80}>
-                <ProjectCard project={project} />
-              </Reveal>
+              <li key={project.slug}>
+                <ProjectBlock project={project} index={i} />
+              </li>
             ))}
           </ul>
         )}
 
-        <div className="mt-10 flex justify-center">
-          <Button href="/projects" variant="animated" size="lg">
-            See all {projects.length} projects
+        <div className="mt-10 flex justify-end">
+          <Link to="/projects" className="brut-button brut-focus">
+            All {projects.length} projects
             <ArrowRight className="size-4" aria-hidden />
-          </Button>
+          </Link>
         </div>
       </div>
     </section>
