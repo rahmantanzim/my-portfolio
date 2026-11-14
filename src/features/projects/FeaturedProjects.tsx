@@ -6,7 +6,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { projectsQuery } from '@/services/content'
 import { ProjectCard } from './ProjectCard'
 
-const MAX_FEATURED = 4
+const MAX_FEATURED = 6
 
 export function FeaturedProjects() {
   const { data: projects = [], isError } = useQuery(projectsQuery)
@@ -27,7 +27,7 @@ export function FeaturedProjects() {
         {isError ? (
           <p className="text-muted-foreground">Projects couldn’t be loaded right now. Please try again later.</p>
         ) : (
-          <ul className="grid gap-6 md:grid-cols-2">
+          <ul className="grid gap-6 md:grid-cols-3">
             {featured.map((project, i) => (
               <Reveal as="li" key={project.slug} delay={(i % 2) * 80}>
                 <ProjectCard project={project} />
