@@ -21,7 +21,7 @@ function createParticles(count: number): Particle[] {
 }
 
 /** Slowly drifting teal dots behind the hero. Hidden when reduced motion is preferred. */
-export function Particles({ count = 50 }: { count?: number }) {
+export function Particles({ count = 200 }: { count?: number }) {
   // Generated once per mount so positions don't change on re-render.
   const [particles] = useState(() => createParticles(count))
 

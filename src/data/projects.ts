@@ -17,9 +17,7 @@ export const projects: Project[] = [
     context: 'Team of 3 · MASc capstone',
     featured: true,
     order: 2,
-    // Placeholder until the thumbnail is ready. Then replace with:
-    // image: { src: '/projects/winter-disruption-assistant.webp', alt: 'Winter Disruption Assistant suggesting a revised daily plan' },
-    image: null,
+    image: { src: '/projects/winter-disruption.webp', alt: 'Winter Disruption ' },
     tags: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'OpenAI API'],
     links: { live: null, github: null },
   },
@@ -34,7 +32,7 @@ export const projects: Project[] = [
     order: 1,
     // Placeholder until the thumbnail is ready. Then replace with:
     // image: { src: '/projects/heritage-archives-catalogue.webp', alt: 'Heritage Archives Catalogue search results in Bengali and English' },
-    image: null,
+    image: { src: '/projects/heritage-catalog.webp', alt: 'Heritage Archives Catalogue ' },
     tags: ['Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Docker', 'GitHub Actions', 'pytest'],
     links: {
       live: null,
