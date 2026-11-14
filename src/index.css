@@ -88,6 +88,23 @@
     }
   }
 
+  /* Home-page sections sit in a narrower column than the hero. */
+  .section > .container-page {
+    padding-inline: 1.5rem;
+
+    @media (min-width: 768px) {
+      padding-inline: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-inline: 6rem;
+    }
+
+    @media (min-width: 1280px) {
+      padding-inline: 8rem;
+    }
+  }
+
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.8125rem;
