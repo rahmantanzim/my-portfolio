@@ -38,7 +38,7 @@ export function FeaturedProjects() {
 
         <div className="mt-10 flex justify-center">
           <Button href="/projects" variant="animated" size="lg">
-            See all {projects.length} projects
+            See all projects
             <ArrowRight className="size-4" aria-hidden />
           </Button>
         </div>
