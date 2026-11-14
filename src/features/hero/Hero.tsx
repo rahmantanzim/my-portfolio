@@ -52,7 +52,7 @@ export function Hero() {
               </Button>
               <Button href={site.resumeUrl} variant="animated" size="lg">
                 <Download className="size-4" aria-hidden />
-                Download résumé
+                Download resume
               </Button>
             </div>
 
