@@ -4,10 +4,43 @@ import type { Project } from '@/types/content'
  * Static project content. When the backend is ready, the same shape will be
  * served from `GET /projects` (see src/services/content.ts).
  *
- * - `featured: true` projects appear on the home page (keep it to 4).
+ * - `featured: true` projects appear on the home page (keep it to 6).
  * - Projects with a `caseStudy` get their own page at /projects/:slug.
  */
 export const projects: Project[] = [
+  {
+    slug: 'winter-disruption-assistant',
+    title: 'Agentic AI Winter Disruption Assistant',
+    summary:
+      'AI agent that matches winter disruption notices from MUN, Metrobus and Environment Canada to each user’s tasks, suggests a new plan for the day, and changes the calendar only after the user approves.',
+    category: 'university',
+    context: 'Team of 3 · MASc capstone',
+    featured: true,
+    order: 2,
+    // Placeholder until the thumbnail is ready. Then replace with:
+    // image: { src: '/projects/winter-disruption-assistant.webp', alt: 'Winter Disruption Assistant suggesting a revised daily plan' },
+    image: null,
+    tags: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'OpenAI API'],
+    links: { live: null, github: null },
+  },
+  {
+    slug: 'heritage-archives-catalogue',
+    title: 'Heritage Archives Catalogue',
+    summary:
+      'Python pipeline that turns 13 legacy catalogue files into one clean PostgreSQL database for an archive of 30,000+ periodicals, books and posters, with a search API over Bengali and English text.',
+    category: 'personal',
+    context: 'Volunteer project · Heritage Archives Bangladesh',
+    featured: true,
+    order: 1,
+    // Placeholder until the thumbnail is ready. Then replace with:
+    // image: { src: '/projects/heritage-archives-catalogue.webp', alt: 'Heritage Archives Catalogue search results in Bengali and English' },
+    image: null,
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Docker', 'GitHub Actions', 'pytest'],
+    links: {
+      live: null,
+      github: 'https://github.com/rahmantanzim/heritage-archives-catalogue',
+    },
+  },
   {
     slug: 'ai-blog-platform',
     title: 'AI Blog Platform',
@@ -16,7 +49,7 @@ export const projects: Project[] = [
     category: 'personal',
     context: 'Personal project',
     featured: true,
-    order: 1,
+    order: 3,
     image: { src: '/projects/ai-blog-platform.webp', alt: 'AI Blog Platform home page' },
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS', 'Gemini API', 'JWT'],
     links: {
@@ -44,7 +77,7 @@ export const projects: Project[] = [
     category: 'university',
     context: 'Team of 3 · Course project',
     featured: true,
-    order: 2,
+    order: 4,
     image: { src: '/projects/swipe-2fa-logs.webp', alt: 'Swipe 2FA admin dashboard showing authentication logs' },
     tags: ['React', 'Vitest', 'Python', 'scikit-learn', 'Firebase', 'Android'],
     links: {
@@ -88,7 +121,7 @@ export const projects: Project[] = [
     category: 'university',
     context: 'Course project · Software verification',
     featured: true,
-    order: 3,
+    order: 5,
     image: { src: '/projects/parser-fuzzing-tools.webp', alt: 'Illustration of an HTML parser fuzzer' },
     tags: ['Python', 'coverage.py', 'Grammar-based fuzzing', 'AST'],
     links: {
@@ -118,7 +151,7 @@ export const projects: Project[] = [
     category: 'business',
     context: 'Client work at HYPE Dhaka · ASUS campaign',
     featured: true,
-    order: 4,
+    order: 6,
     image: { src: '/projects/review-campaign-microsite.webp', alt: 'ASUS laptop review campaign artwork' },
     tags: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
     links: {
@@ -162,7 +195,7 @@ export const projects: Project[] = [
       'Real-time chat where every message is encrypted on the sender’s machine with RSA-OAEP, so the server only ever relays ciphertext.',
     category: 'university',
     featured: false,
-    order: 5,
+    order: 7,
     image: { src: '/projects/encrypted-chat.webp', alt: 'Illustration of end-to-end encrypted messaging' },
     tags: ['Python', 'Flask-SocketIO', 'RSA-OAEP', 'Cryptography'],
     links: { live: null, github: 'https://github.com/rahmantanzim/python-cryptography-chat' },
@@ -175,7 +208,7 @@ export const projects: Project[] = [
     category: 'business',
     context: 'Client work at HYPE Dhaka',
     featured: false,
-    order: 6,
+    order: 8,
     image: null,
     tags: ['PHP', 'MySQL', 'Form validation'],
     links: { live: null, github: null },
@@ -187,34 +220,23 @@ export const projects: Project[] = [
       'WooCommerce store for an apparel brand with a single-page checkout, QR-based mobile payment verification, SMTP email and courier API integration.',
     category: 'business',
     featured: false,
-    order: 7,
+    order: 9,
     image: { src: '/projects/dhongerbakso-ecommerce.webp', alt: 'Dhongerbakso e-commerce feature overview' },
     tags: ['WordPress', 'WooCommerce', 'PHP', 'CartFlows'],
     links: { live: 'https://dhongerbakso.com', github: null },
   },
   {
-    slug: 'historical-archives-catalog',
-    title: 'Historical Archives Catalog',
+    slug: 'heritage-archives-website',
+    title: 'Heritage Archives Website',
     summary:
-      'WordPress site for Heritage Archives Bangladesh with custom layouts to catalogue, search and read historical documents and publications.',
+      'Public WordPress site for Heritage Archives Bangladesh, with custom layouts for cataloguing, searching and reading its historical documents and publications.',
     category: 'business',
+    context: 'WordPress site · Heritage Archives Bangladesh',
     featured: false,
-    order: 8,
+    order: 10,
     image: { src: '/projects/historical-archives-catalog.webp', alt: 'The Archives of Bangladesh History home page' },
     tags: ['WordPress', 'Elementor', 'Custom theme'],
     links: { live: 'https://heritage-archives.org', github: null },
-  },
-  {
-    slug: 'nextjs-typeorm-app',
-    title: 'Next.js & TypeORM App',
-    summary:
-      'Next.js and TypeScript app on PostgreSQL (Supabase) using TypeORM for relational modelling, server-side data fetching and schema migrations.',
-    category: 'personal',
-    featured: false,
-    order: 9,
-    image: null,
-    tags: ['Next.js', 'TypeScript', 'TypeORM', 'PostgreSQL', 'Supabase'],
-    links: { live: null, github: null },
   },
   {
     slug: 'python-data-visualization',
@@ -223,7 +245,7 @@ export const projects: Project[] = [
       'Jupyter notebooks using Pandas and Matplotlib to clean raw datasets and plot multi-variable scatter and connected-dot charts.',
     category: 'university',
     featured: false,
-    order: 10,
+    order: 11,
     image: null,
     tags: ['Python', 'Pandas', 'Matplotlib', 'Jupyter'],
     links: { live: null, github: null },
