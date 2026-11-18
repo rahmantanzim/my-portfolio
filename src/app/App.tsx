@@ -1,6 +1,7 @@
 import { lazy } from 'react' // lazy is used for code-splitting secondary pages so the home page loads faster
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { HomePage } from '@/pages/HomePage'
 import { RootLayout } from './RootLayout'
 
@@ -26,6 +27,7 @@ export function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Analytics />
     </QueryClientProvider>
   )
 }
