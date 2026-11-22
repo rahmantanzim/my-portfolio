@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FileText, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { navLinks, site } from '@/config/site'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { cn } from '@/lib/utils'
@@ -78,23 +79,27 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <Button href="/#contact" size="sm">
             Contact me
           </Button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className="-mr-2 flex size-10 items-center justify-center rounded-full text-foreground md:hidden"
-          onClick={() => setIsOpen((open) => !open)}
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isOpen ? <X className="size-6" aria-hidden /> : <Menu className="size-6" aria-hidden />}
-        </button>
+        {/* Mobile: theme toggle + menu button */}
+        <div className="-mr-2 flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="flex size-10 items-center justify-center rounded-full text-foreground"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? <X className="size-6" aria-hidden /> : <Menu className="size-6" aria-hidden />}
+          </button>
+        </div>
       </nav>
 
       {isOpen && (
