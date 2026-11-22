@@ -9,6 +9,15 @@
       content="Tanzim Rahman is a full-stack developer (React, Node.js, TypeScript, Python) and MASc Software Engineering student at Memorial University in St. John's, NL. Open to full-time roles."
     />
     <meta name="theme-color" content="#0f1418" />
+    <!-- Apply the saved theme before the first paint (no flash). Dark is the default. -->
+    <script>
+      try {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.dataset.theme = 'light'
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f5f7f8')
+        }
+      } catch (e) {}
+    </script>
     <link rel="canonical" href="https://tanzim-rahman.com/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 

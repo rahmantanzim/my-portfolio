@@ -27,6 +27,27 @@
   --animate-drift: slow-drift 24s ease-in-out infinite;
 }
 
+/* Light mode: same tokens, lighter values. Set by data-theme on <html>. */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --color-background: #f5f7f8;
+  --color-foreground: #12181d;
+  --color-card: #ffffff;
+  --color-surface: #edf1f3;
+
+  --color-primary: #0f766e;
+  --color-primary-hover: #115e59;
+  --color-primary-foreground: #ffffff;
+
+  --color-muted-foreground: #58626c;
+  --color-border: #dde3e7;
+  --color-border-strong: #c4ccd2;
+
+  --color-success: #15803d;
+  --color-danger: #dc2626;
+}
+
 /* ------------------------------------------------------------------ */
 /* Base                                                                */
 /* ------------------------------------------------------------------ */
@@ -112,6 +133,12 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-primary);
+  }
+
+  /* Hero grid image: inverted in light mode so the lines stay teal on a light page */
+  [data-theme='light'] .hero-bg {
+    opacity: 0.18;
+    filter: invert(1) hue-rotate(180deg);
   }
 
   /* Frosted panels — the site's signature surface */
