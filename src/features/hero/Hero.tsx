@@ -10,7 +10,7 @@ export function Hero() {
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
       {/* Background: grid horizon image fading into the page, plus drifting particles */}
       <div aria-hidden className="absolute inset-0 -z-10">
-        <img src="/hero-bg.webp" alt="" className="size-full object-cover opacity-40" />
+        <img src="/hero-bg.webp" alt="" className="hero-bg size-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background" />
       </div>
       <Particles />
